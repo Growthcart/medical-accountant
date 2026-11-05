@@ -17,6 +17,8 @@ const CARDS = [
   { href: '/hospital-consultants/', img: 'hospital-accounting-services.webp', title: 'Hospital Consultants', desc: 'As specialist medical accountants we work closely with consultants to provide effective solutions to their specific accountancy and financial needs.' },
   { href: '/locum-accountants/', img: 'locum-accountants.webp', title: 'Locum Doctors', desc: 'We have extensive experience of providing specialist accountancy and tax services to Locums including HES pension advice. Due to our niche expertise we act for Locums throughout Ireland.' },
   { href: '/dental-accountants/', img: 'accountants-for-dentist.webp', title: 'Dental Professionals', desc: 'We have a dedicated team of dental accountants with years of experience in dealing with dental professionals.' },
+  { href: '/accountants-nurses/', img: 'nurses-card.webp', title: 'Nurses', desc: 'We take the hassle out of tax. Our seamless, simple service means peace of mind – you’ll know everything’s handled by experts.' },
+  { href: '/ihca/', img: 'IHCA-rvtucjhswbhjfybfd1eugcprg0z0wcwhfe4ugzfu70.png', logo: true, title: 'IHCA Members', desc: 'Specialist accounting, taxation and practice structuring advice for Ireland’s hospital consultants.' },
 ];
 
 export function WhoWeHelp() {
@@ -31,7 +33,7 @@ export function WhoWeHelp() {
         <div className="services-grid">
           {CARDS.map((c, i) => (
             <article key={c.href} className={`service-card group reveal ${DELAY[i % 3]}`}>
-              <img src={`/images/wp/${c.img}`} alt={c.title} width="400" height="300" loading="lazy" decoding="async" className="service-card__photo" />
+              <img src={`/images/wp/${c.img}`} alt={c.title} width="400" height="300" loading="lazy" decoding="async" className={`service-card__photo${c.logo ? ' service-card__photo--logo' : ''}`} />
               <h3>{c.title}</h3>
               <p className="service-card__desc">{c.desc}</p>
               <a href={c.href} className="service-card__cta">
@@ -70,24 +72,22 @@ export function Team() {
   return (
     <section className="section section--off !py-20" aria-label="Our people" {...Q}>
       <div className="container-page" {...Q}>
-        <div className="reveal mb-12 max-w-3xl" {...Q}>
+        <div className="reveal mb-12" {...Q}>
           <span className="eyebrow" {...Q}>Our team</span>
           <h2 {...Q}>Meet our people</h2>
           <div className="rule" {...Q}></div>
-          <p className="mt-4 leading-relaxed text-navy/75">It is our people who make us what we are today and our team’s commitment to our clients is evident in everything we do. Our team has great technical expertise but we also possess the ability to explain even the most complex of issues in a practical way.</p>
-          <p className="mt-4 leading-relaxed text-navy/75">For any business related matters, tax advice or financial planning, you can directly get in touch with a member of our team.</p>
+          <p className="mt-4 max-w-none leading-relaxed text-navy/75">It is our people who make us what we are today and our team’s commitment to our clients is evident in everything we do. Our team has great technical expertise but we also possess the ability to explain even the most complex of issues in a practical way.</p>
+          <p className="mt-4 max-w-none leading-relaxed text-navy/75">For any business related matters, tax advice or financial planning, you can directly get in touch with a member of our team.</p>
         </div>
-        <div className="advisors" {...Q}>
+        <ul className="team">
           {content.team.map((m, i) => (
-            <article key={m.name + i} className={`advisor reveal ${DELAY[i % 2]}`} {...Q}>
-              <img className="advisor__photo" src={m.img} alt={m.name} width="400" height="500" loading="lazy" decoding="async" {...Q} />
-              <div className="advisor__body" {...Q}>
-                <h3 className="advisor__name" {...Q}>{m.name}</h3>
-                <p className="advisor__role" {...Q}>{m.role}</p>
-              </div>
-            </article>
+            <li key={m.name + i} className={`team__member reveal ${DELAY[i % 3]}`}>
+              <img className="team__photo" src={m.img} alt={m.name} width="200" height="200" loading="lazy" decoding="async" />
+              <h3 className="team__name">{m.name}</h3>
+              <p className="team__role">{m.role}</p>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { SITE, WHO } from '@/lib/site';
+import NavLink from './NavLink';
 
 const Chevron = ({ className = 'h-4 w-4 transition-transform', ...p }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className={className} aria-hidden="true" {...p}>
@@ -16,7 +17,7 @@ export default function Header() {
           <img src="/images/logo.png" alt="MedicalAccountant.ie" width="210" height="61" className="h-12 w-auto lg:h-[64px]" />
         </a>
         <nav aria-label="Primary" className="navbar__nav">
-          <a href="/" className="nav-link">Home</a>
+          <NavLink href="/" className="nav-link">Home</NavLink>
           <div className="dropdown relative" data-dropdown="">
             <button type="button" className="nav-trigger" aria-haspopup="menu" aria-expanded="false" data-dropdown-toggle="">
               Who We Help <Chevron data-dropdown-chevron="" />
@@ -29,12 +30,17 @@ export default function Header() {
               ))}
             </div>
           </div>
-          <a href="/company-formation/" className="nav-link">Company Formation</a>
-          <a href="/ihca/" className="nav-link">IHCA</a>
+          <NavLink href="/company-formation/" className="nav-link">Company Formation</NavLink>
+          <NavLink href="/ihca/" className="nav-link">IHCA</NavLink>
         </nav>
         <a href={`tel:${SITE.tel}`} className="navbar__phone hidden lg:inline-flex" aria-label={`Call ${SITE.phone}`}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-          {SITE.phone}
+          <span className="navbar__phone-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+          </span>
+          <span className="navbar__phone-text">
+            <span className="navbar__phone-label">Call us today</span>
+            <span className="navbar__phone-number">{SITE.phone}</span>
+          </span>
         </a>
         <a href="/contact/" className="navbar__cta hidden lg:inline-flex" aria-label="Get in Touch">Get in Touch</a>
         <button type="button" aria-label="Toggle menu" aria-expanded="false" className="menu-toggle" data-menu-toggle="">
