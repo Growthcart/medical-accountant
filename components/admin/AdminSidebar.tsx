@@ -114,10 +114,10 @@ export default function AdminSidebar({ profile, onSignOut, open, onClose }: Admi
             onClick={onClose}
           >
             <Image
-              src="/images/logo.svg"
+              src="/images/logo.png"
               alt="MedicalAccountant.ie"
-              width={125}
-              height={30}
+              width={97}
+              height={28}
               className="h-7 w-auto brightness-0 invert"
               priority
             />
