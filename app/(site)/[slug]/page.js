@@ -6,6 +6,9 @@ import { content, pageMeta } from '@/lib/site';
 
 // The site's own pages (gp-accountants, ihca, ...) are built ahead of time. Any other /{slug}/ is a news post
 // read from the CMS on request, so a post published in the admin works without a rebuild.
+// Posts come from the database and PostPage calls connection(), which cannot run in a prerendered/ISR route
+// (Vercel: DYNAMIC_SERVER_USAGE), so the whole /{slug}/ route is rendered per request.
+export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
 
 const pages = Object.entries(content.pages).filter(([, p]) => p.blocks);
