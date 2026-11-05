@@ -87,7 +87,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="placeholder-gray-400"
-                placeholder="admin@medicalaccountant.ie"
+                placeholder="Enter your email address"
                 disabled={loading}
                 autoComplete="email"
               />

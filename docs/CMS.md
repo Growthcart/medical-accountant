@@ -22,11 +22,7 @@ The site's own pages (home, contact, terms and the seven audience pages) are sti
 1. **Supabase project.** Create one at supabase.com.
 2. **Tables.** Dashboard > SQL Editor: run `database/supabase-schema.sql`, then `database/import-existing-posts.sql` (the seven existing posts).
    The schema turns Row Level Security on for every table with no policies, so Supabase's public API can read nothing; the site connects with `DATABASE_URL`.
-3. **Admin login.** Locally run:
-   ```bash
-   npm run db:create-admin -- you@medicalaccountant.ie "a long password" "Your Name"
-   ```
-   Paste the generated `.admin-seed.sql` into the SQL Editor, run it, then delete the file.
+3. **Admin login.** Set `ADMIN_EMAIL` and `ADMIN_PASSWORD` (12+ characters) in Vercel and redeploy. The first sign-in at `/admin/login` creates the admin account; changing either value later changes the login (after a redeploy). No SQL needed.
 4. **Uploads.** Dashboard > Storage: create a **private** bucket named `uploads` (or set `SUPABASE_STORAGE_BUCKET`). Files are served by the site at `/files/<bucket>/<name>`.
 5. **Vercel.** Import the repository. Under Settings > Environment Variables add everything in `.env.example`:
    `NEXT_PUBLIC_SITE_URL=https://medicalaccountant.ie`, `DATABASE_URL` (Supabase **Transaction pooler**, port 6543, Settings > Database), `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `POSTS_API_KEY`, `REVALIDATION_SECRET`, `RESEND_*`, `INDEXNOW_KEY`, `ENQUIRY_WEBHOOK_URL`.

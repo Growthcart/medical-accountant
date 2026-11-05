@@ -36,8 +36,11 @@ const g = globalThis as { __pgPool?: Pool; __sb?: SupabaseClient };
 
 function pool(): Pool {
   if (!g.__pgPool) {
-    const connectionString = process.env.DATABASE_URL;
-    if (!connectionString) throw new Error('DATABASE_URL is not set (Supabase transaction pooler connection string)');
+    // DATABASE_URL, or POSTGRES_URL as added by Vercel's Supabase integration. The query string (sslmode=require...) is
+    // dropped: it would override the ssl option below with strict certificate checking.
+    const raw = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+    if (!raw) throw new Error('DATABASE_URL is not set (Supabase transaction pooler connection string)');
+    const connectionString = raw.replace(/\?.*$/, '');
     g.__pgPool = new Pool({
       connectionString,
       max: 3,
