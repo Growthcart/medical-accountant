@@ -1,0 +1,25 @@
+/* Parts of the CMS-driven news that the original hand-built news pages did not have: pagination, empty state, author card.
+   Colours are the site's own (navy #0a1f44, teal #0db1ba). */
+.blog-pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem; margin-top: 3.5rem; }
+.blog-pager__link { display: inline-flex; min-width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; padding: 0 .85rem; border-radius: .5rem; font-size: .9rem; font-weight: 600; color: #0a1f44; text-decoration: none; transition: background-color .15s, color .15s; }
+.blog-pager__link:hover { background: #0db1ba1a; color: #0b6168; }
+.blog-pager__link--current { background: #0a1f44; color: #fff; }
+.blog-pager__link--current:hover { background: #0a1f44; color: #fff; }
+.blog-pager__gap { color: #0a1f4466; padding: 0 .25rem; }
+.blog-empty { padding: 3rem 0; text-align: center; font-size: 1.125rem; color: #0a1f44b3; }
+
+.blog-author-card { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 3rem; padding: 1.5rem; border: 1px solid #0a1f441a; border-radius: 1rem; background: #fff; }
+@media (min-width: 640px) { .blog-author-card { flex-direction: row; align-items: flex-start; gap: 1.5rem; padding: 2rem; } }
+.blog-author-card__photo { width: 96px; height: 96px; border-radius: .75rem; object-fit: cover; flex: none; background: #0a1f440d; }
+.blog-author-card__role { font-size: .9rem; font-weight: 600; color: #0a1f4499; }
+.blog-author-card__bio { margin-top: .6rem; line-height: 1.65; color: #0a1f44bf; }
+.blog-author-card__links { display: flex; gap: 1.25rem; margin-top: 1rem; }
+.blog-author-card__links a { font-size: .9rem; font-weight: 600; color: #0a1f44; text-underline-offset: 3px; }
+.blog-author-card__links a:hover { color: #0b6168; }
+.blog-archive-title { margin-bottom: 2rem; font-size: 1.5rem; font-weight: 700; color: #0a1f44; }
+
+/* Post page extras */
+.article__tags a { color: inherit; text-decoration: none; }
+.article__tags a:hover { text-decoration: underline; }
+.blog-media { margin-top: 2rem; }
+.blog-media p { margin-top: .5rem; font-size: .9rem; color: #0a1f44b3; }

@@ -1,0 +1,1 @@
+(()=>{let e=document.querySelectorAll(`.reveal`);if(!e.length)return;if(!(`IntersectionObserver`in window)){e.forEach(e=>e.classList.add(`is-visible`));return}let t=new IntersectionObserver(e=>{for(let n of e)n.isIntersecting&&(n.target.classList.add(`is-visible`),t.unobserve(n.target))},{threshold:.15,rootMargin:`0px 0px -10% 0px`});e.forEach(e=>t.observe(e))})();

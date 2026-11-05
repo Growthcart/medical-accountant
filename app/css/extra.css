@@ -1,0 +1,17 @@
+/* Only what the borrowed design system has no class for. */
+.office + .office { margin-top: 1.75rem; }
+.office h3 { font-family: var(--font-figtree), system-ui, sans-serif; color: #0a1f44; font-size: 1.125rem; font-weight: 700; }
+.office p, .office a { color: rgb(10 31 68 / 0.75); line-height: 1.6; }
+.office a { text-decoration: underline; text-underline-offset: 3px; }
+.office-card { background: #f8f9fa; border-radius: 1rem; padding: 1.75rem; }
+.service-card__photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0.75rem; margin-bottom: 1.25rem; }
+.btn-gold.hero-cta { background: #fff; color: #0b0f19; border-color: #fff; box-shadow: none; }
+.btn-gold.hero-cta:hover { background: #e6f7f8; }
+.navbar__phone { align-items: center; gap: 0.5rem; margin-right: 1.25rem; padding-left: 1.25rem; border-left: 1px solid rgb(10 31 68 / 0.15); color: #0a1f44; font-weight: 700; font-size: 1.0625rem; white-space: nowrap; }
+.navbar__phone:hover { color: #0b6168; }
+.navbar__cta { text-transform: uppercase; }
+
+.consent { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding: 1rem 1.5rem; background: #fff; color: #0a1f44; border-top: 1px solid rgb(10 31 68 / 0.12); box-shadow: 0 -10px 30px -12px rgb(10 31 68 / 0.25); }
+.consent p { flex: 1 1 28rem; margin: 0; font-size: 0.9rem; line-height: 1.5; }
+.consent__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+button.footer__link { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }

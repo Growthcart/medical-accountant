@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "cms": {
+      "command": "node",
+      "args": ["mcp-server/index.mjs"],
+      "env": {
+        "CMS_SITE_URL": "${CMS_SITE_URL:-http://localhost:3000}",
+        "CMS_POSTS_API_KEY": "${CMS_POSTS_API_KEY}",
+        "CMS_DEFAULT_AUTHOR": "${CMS_DEFAULT_AUTHOR:-}",
+        "CMS_DEFAULT_CATEGORY": "${CMS_DEFAULT_CATEGORY:-}"
+      }
+    }
+  }
+}

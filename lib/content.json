@@ -1,0 +1,773 @@
+{
+ "pages": {
+  "gp-accountants": {
+   "h1": "GP Accountants",
+   "lead": [
+    "We are experienced at working with GPs and can help you with business decisions which will directly affect your income.",
+    "As taxation specialists we can help keep your personal and practice tax bills to a minimum."
+   ],
+   "blocks": [
+    {
+     "t": "h2",
+     "html": "Accountancy &amp; Taxation Services for GPs"
+    },
+    {
+     "t": "p",
+     "html": "The finances of medical practices are very demanding and incredibly complex, especially with legal entities, tax regulations and accounts management. You require a specialist accountant to guide you through these complexities and we will work closely with you to ensure we understand your personal goals as well as your accounts, tax and pension positions."
+    },
+    {
+     "t": "p",
+     "html": "We act for over 100 GP Practices throughout Ireland and once you talk to us, you’ll understand how we deliver, why we are different to our competitors and how we can offer the best possible service for you!"
+    },
+    {
+     "t": "p",
+     "html": "Perhaps you are approaching retirement, or you want to open a private practice, whatever your needs our team is here to help you. We provide tailored services to meet your own specific needs, including:"
+    },
+    {
+     "t": "h2",
+     "html": "Our specialist team provides a wide range of accounting and business services to GPs."
+    },
+    {
+     "t": "ul",
+     "items": [
+      "Annual Accounts and Tax Return",
+      "Payroll Management",
+      "Tax Planning",
+      "Monthly or Quarterly Management Accounts",
+      "Partnership Return and individual partner returns",
+      "Advice on any GMS changes and their financial impact",
+      "Budget and cash flow",
+      "Retirement Planning",
+      "Practice Valuation",
+      "Help with buying and selling practice",
+      "Pension Planning",
+      "Help with setting up internal controls",
+      "Help with Raising Finance",
+      "Merger and Acquisition",
+      "Capital Gain Tax",
+      "Entrepreneur Relief",
+      "Unlimited telephone support for ad hoc queries"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "We understand how clients feel about unexpected charges and therefore we quote a fixed fee for our recurrent services. Fees for the non-recurrent services would be based upon the time involved and would be agreed prior to the work being carried out."
+    }
+   ],
+   "images": [
+    {
+     "src": "/images/wp/General-Practitioners-accountants-pddmg600eaz3p3gryq3ijw0mutet85qjnu7p690vsy.jpeg",
+     "alt": "GP Accountants"
+    }
+   ],
+   "seoTitle": "GP Accountants - General Practitioners Accountant Ireland",
+   "description": "GP Accountants - We are experienced at working with GPs and can help you with business decisions which will directly affect your income."
+  },
+  "hospital-consultants": {
+   "h1": "Hospital Consultants",
+   "lead": [
+    "Medical Accountants For Consultants",
+    "As specialist medical accountants we work closely with consultants to provide effective solutions to their specific accountancy and financial needs."
+   ],
+   "blocks": [
+    {
+     "t": "h2",
+     "html": "Specialist Accountants For Hospital Consultants"
+    },
+    {
+     "t": "p",
+     "html": "Medical specialists and doctors are high earning professions, hence, more prone to legal formalities. With our specialized accounting service for doctors and healthcare professionals, strategic financial planning, and accounting advice, we can help you grow as well as protect your wealth effectively."
+    },
+    {
+     "t": "p",
+     "html": "We understand how demanding and challenging your schedule is, and it gets tough to manage the finance with accuracy. As being specialists in providing accounting services for doctors, we can handle your requirements efficiently."
+    },
+    {
+     "t": "p",
+     "html": "Unlike any other accountants, we do not work occasionally. Once committed our service to you, we will look after complete financial management, from daily bookkeeping to managing cash flow- it is a complete package. We also let you know about the whole picture inclusively; professional and your personal financial motive and help you achieve it."
+    },
+    {
+     "t": "h3",
+     "html": "How do I keep my taxes to a minimum?"
+    },
+    {
+     "t": "p",
+     "html": "We keep tax minimum by advising on how best to structure your business."
+    },
+    {
+     "t": "ul",
+     "items": [
+      "We consider whether a consultant should trade through a limited company or Partnership.",
+      "We will advise if spouses or other family members should participate in the business.",
+      "We advise on claiming expenses which will reduce tax bills.",
+      "We typically carry out bespoke tax planning for each consultant depending upon their individual and financial circumstances."
+     ]
+    },
+    {
+     "t": "h3",
+     "html": "Our specialist team provides a wide range of accounting and business services to Consultants."
+    },
+    {
+     "t": "ul",
+     "items": [
+      "Annual Accounts and Tax Return",
+      "Companies Registration Office (CRO) Returns",
+      "Payroll Management",
+      "Tax Planning",
+      "VAT Returns",
+      "Dealing with Revenue Audits",
+      "Business Review",
+      "Monthly or Quarterly Management Accounts",
+      "Budget and cash flow",
+      "Retirement Planning",
+      "Pension Planning",
+      "Help with Raising Finance",
+      "Set up Ltd Company",
+      "Company Secretarial",
+      "Capital Gain Tax – Entrepreneur Relief",
+      "Unlimited telephone support for ad hoc queries"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "We understand how clients feel about unexpected charges and therefore we quote a fixed fee for our recurrent services. Fees for the non-recurrent services would be based upon the time involved and would be agreed prior to the work being carried out."
+    }
+   ],
+   "images": [
+    {
+     "src": "/images/wp/General-Practitioners-accountants-pddmg600eaz3p3gryq3ijw0mutet85qjnu7p690vsy.jpeg",
+     "alt": "GP Accountants"
+    }
+   ],
+   "seoTitle": "Accountants for Hospital Consultants - MedicalAccountant.ie",
+   "description": "As specialist medical accountants we work closely with hospital consultants to provide effective solutions to their specific accountancy and financial needs."
+  },
+  "locum-accountants": {
+   "h1": "Accountants for Locum Doctors",
+   "lead": [
+    "We have extensive experience of providing specialist accountancy and tax services to Locums including HES pension advice. Due to our niche expertise we act for Locums throughout Ireland."
+   ],
+   "blocks": [
+    {
+     "t": "h2",
+     "html": "Specialist Accountants For Locum Doctors"
+    },
+    {
+     "t": "p",
+     "html": "Medical specialists and doctors are high earning professions, hence, more prone to legal formalities. With our specialiSed accounting service for locum doctors and healthcare professionals, strategic financial planning, and accounting advice, we can help you grow as well as protect your wealth effectively."
+    },
+    {
+     "t": "p",
+     "html": "We understand how demanding and challenging your schedule is, and it gets tough to manage the finance with accuracy. As being specialists in providing accounting services for doctors, we can handle your requirements efficiently."
+    },
+    {
+     "t": "p",
+     "html": "Unlike any other accountants, we do not work occasionally. Once committed our service to you, we will look after complete financial management, from daily bookkeeping to managing cash flow- it is a complete package. We also let you know about the whole picture inclusively; professional and your personal financial motive and help you achieve it."
+    },
+    {
+     "t": "p",
+     "html": "How do I keep my taxes to a minimum?"
+    },
+    {
+     "t": "p",
+     "html": "We keep tax minimum by advising on how best to structure your business."
+    },
+    {
+     "t": "ul",
+     "items": [
+      "We consider whether a consultant should trade through a limited company or Partnership.",
+      "We will advise if spouses or other family members should participate in the business.",
+      "We advise on claiming expenses which will reduce tax bills.",
+      "We typically carry out bespoke tax planning for each consultant depending upon their individual and financial circumstances."
+     ]
+    },
+    {
+     "t": "h2",
+     "html": "We offer a broad range of accountancy and financial planning services to Locums. Our specialist knowledge ensures you receive the best advice."
+    },
+    {
+     "t": "ul",
+     "items": [
+      "Annual Accounts and Tax Return",
+      "Companies Registration Office (CRO) Returns",
+      "Payroll Management",
+      "Tax Planning",
+      "VAT Returns",
+      "Dealing with Revenue Audits",
+      "Business Review",
+      "Monthly or Quarterly Management Accounts",
+      "Budget and cash flow",
+      "Retirement Planning",
+      "Pension Planning",
+      "Help with Raising Finance",
+      "Set up Ltd Company",
+      "Company Secretarial",
+      "Capital Gain Tax – Entrepreneur Relief",
+      "Unlimited telephone support for ad hoc queries"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "We understand how clients feel about unexpected charges and therefore we quote a fixed fee for our recurrent services. Fees for the non-recurrent services would be based upon the time involved and would be agreed prior to the work being carried out."
+    }
+   ],
+   "images": [
+    {
+     "src": "/images/wp/General-Practitioners-accountants-pddmg600eaz3p3gryq3ijw0mutet85qjnu7p690vsy.jpeg",
+     "alt": "GP Accountants"
+    }
+   ],
+   "seoTitle": "Accountants for Locum Doctors - Locum Accountants Ireland",
+   "description": "Locum Accountants - We have extensive experience of providing specialist accountancy and tax services to Locums including HES pension advice."
+  },
+  "dental-accountants": {
+   "h1": "Accountants For Dentists",
+   "lead": [
+    "Dentistry is a niche vocation where the contractual framework for generating income is completely different to the general commercial sector.",
+    "It is therefore very important that when dentists choose an accountant, a dental professional must ensure they select an accountancy partner with a proven track record in healthcare finance"
+   ],
+   "blocks": [
+    {
+     "t": "h2",
+     "html": "Accountancy &amp; Taxation Services for Dentists"
+    },
+    {
+     "t": "p",
+     "html": "We have a dedicated team of dental accountants with years of experience in dealing with dental professionals."
+    },
+    {
+     "t": "p",
+     "html": "Whether you are a principal practicing alone, in partnership, in an expense sharing arrangement or through a company or an associate, we have the expertise to ensure that your dental accountancy and taxation affairs are handled with skill and clarity."
+    },
+    {
+     "t": "h3",
+     "html": "Tax Matters For Dentists"
+    },
+    {
+     "t": "p",
+     "html": "We aim to provide a clear and effective plan for you to increase your financial efficiency by using responsible tax services. We’ll guide you through tax matters for dentists, showcasing opportunities around expenses, year end tax and planning advice so that you can enhance profit and ensure you are kept up to date with all things tax."
+    },
+    {
+     "t": "p",
+     "html": "We provide an efficient and cost-effective service to dental associates which entails the preparation of clear and meaningful accounts."
+    },
+    {
+     "t": "p",
+     "html": "We fully explain tax matters for dentists and clearly set out your tax liabilities and when they will be payable. Simply provide your records, and we will do the rest."
+    },
+    {
+     "t": "p",
+     "html": "If you are looking to buy a dental practice, we will support you through that process and assist you with the due diligence and the sourcing of finance."
+    },
+    {
+     "t": "h3",
+     "html": "Principals"
+    },
+    {
+     "t": "p",
+     "html": "Our specialist team of dental accountants will as a matter of course:"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "Prepare industry tailored accounts that will clearly show a picture of your financial performance and position.",
+      "Discuss and explain in a face to face meeting those accounts with you, together with any other business issues.",
+      "Explain your tax position clearly and, upon approval, file your tax return online.",
+      "Be there to provide day to day telephone support. We build relationships with our clients, so our fees are fixed and include free telephone support."
+     ]
+    },
+    {
+     "t": "h3",
+     "html": "Our specialist team also can help with:"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "Prepare comprehensive management accounts on a monthly or quarterly basis.",
+      "Assist in developing budgets and forecasts.",
+      "Provide bookkeeping support and advice.",
+      "Deliver tax planning support.",
+      "Provide support and advice on practice acquisitions and sales and help with the sourcing of finance"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "<a href=\"/contact/\">Get in touch</a> with our dental accountants today to get advice on your financial and tax matters."
+    }
+   ],
+   "images": [
+    {
+     "src": "/images/wp/dental-accountants.jpg",
+     "alt": "dental accountants"
+    }
+   ],
+   "seoTitle": "Dental Accountants for Dentists - MedicalAccountant.ie",
+   "description": "Accountancy & Taxation Services For Dentists. We have a dedicated team of dental accountants with years of experience in dealing with dental professionals."
+  },
+  "accountants-nurses": {
+   "h1": "Accountants for Nurses",
+   "lead": [
+    "We take the hassle out of tax",
+    "Our seamless, simple service means peace of mind – you’ll know everything’s handled by experts."
+   ],
+   "blocks": [
+    {
+     "t": "h2",
+     "html": "Accountancy &amp; Taxation Services for Nurses"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "Our team can offer guidance surrounding your personal circumstances",
+      "Rental income, Investment income, Tax Planning",
+      "Prepare and submit your tax return",
+      "Pension and investment planning",
+      "Accounting &amp; Taxation",
+      "We advise you of all available relief and allowances to assist you in minimising your income tax liabilities."
+     ]
+    },
+    {
+     "t": "h3",
+     "html": "Flat Rate Expenses"
+    },
+    {
+     "t": "p",
+     "html": "Let’s start with flat rate expenses – these are available to workers in a wide variety of industries."
+    },
+    {
+     "t": "p",
+     "html": "The purpose of flat rate expenses is to reduce the costs associated with work (such as uniforms, tools and equipment)."
+    },
+    {
+     "t": "p",
+     "html": "The amount that can be claimed varies from employment to employment. The good news for nurses is that you may be able to claim back as much as €733 per year."
+    },
+    {
+     "t": "p",
+     "html": "This could trigger a tax refund of approximately €1,500 over a 4 year period."
+    },
+    {
+     "t": "h3",
+     "html": "Medical expenses"
+    },
+    {
+     "t": "p",
+     "html": "Medical expenses are perhaps the most common type of tax relief available to Irish workers. It’s also one of the most underutilised – only 4 in 10 workers claim this tax relief every year."
+    },
+    {
+     "t": "p",
+     "html": "Put simply, if you’ve been to the doctor or the dentist in the last 4 years, it’s pretty likely you will due some money back."
+    },
+    {
+     "t": "p",
+     "html": "Here’s some examples of medical expenses that qualify for relief:"
+    },
+    {
+     "t": "p",
+     "html": "Doctor and Consultants Fees – you can claim 20% in tax relief on the cost of every visit."
+    },
+    {
+     "t": "p",
+     "html": "Prescriptions – you can also claim tax relief on the cost of prescriptions. Relief is also available on costs incurred from a coeliac or diabetic diet, as advised by your doctor."
+    },
+    {
+     "t": "p",
+     "html": "Physiotherapy – you can claim tax back if your doctor refers (that’s the important bit they must refer) you to a physiotherapist, chiropractor or osteopath."
+    },
+    {
+     "t": "p",
+     "html": "Diagnostic procedures – X-Rays, MRIs, CAT scans and other diagnostic procedures are eligible for tax relief."
+    },
+    {
+     "t": "p",
+     "html": "Eye care – There is a long list of optical treatments which qualify for tax relief"
+    },
+    {
+     "t": "h3",
+     "html": "Tuition fees"
+    },
+    {
+     "t": "p",
+     "html": "If at any point in the last four years, you paid for tuition fees for yourself or someone else, there is a good chance you can claim tax relief on the expenses incurred."
+    },
+    {
+     "t": "p",
+     "html": "Whether you’re just out of college or still paying for third level fees – this is an important tax relief to be aware of as it could save you a lot of money."
+    },
+    {
+     "t": "p",
+     "html": "Tax relief is given at the standard rate of tax which is 20%. However, there is a limit to fees, at €7,000 per course, on which you can claim relief."
+    },
+    {
+     "t": "h3",
+     "html": "Year of marriage tax relief"
+    },
+    {
+     "t": "p",
+     "html": "Got married in the last four years?"
+    },
+    {
+     "t": "p",
+     "html": "In the year you’re married, both you and your spouse will continue to be treated as single people for tax purposes.In other words, you may be due tax back if you paid more tax in the year you got married than you would have if you had been treated as a married couple."
+    },
+    {
+     "t": "p",
+     "html": "This is a really common type of tax relief that married couples can claim. So, if you’re recently married, it’s worth investigating how much you can claim."
+    },
+    {
+     "t": "h3",
+     "html": "Pension contributions"
+    },
+    {
+     "t": "p",
+     "html": "While you’re employed, and making pension contributions, you may be entitled to tax relief."
+    },
+    {
+     "t": "ul",
+     "items": [
+      "If you’re paying pension contributions through salary deduction, your tax relief is applied automatically at source",
+      "If you pay by Direct Debit, you need to claim tax relief from Revenue."
+     ]
+    },
+    {
+     "t": "p",
+     "html": "You can also claim tax relief on deductions from your Gratuity Lump Sum and any Single Premium AVC contributions you may make."
+    },
+    {
+     "t": "p",
+     "html": "We understand how clients feel about unexpected charges and therefore we quote a fixed fee for our recurrent services. Fees for the non-recurrent services would be based upon the time involved and would be agreed prior to the work being carried out."
+    }
+   ],
+   "images": [
+    {
+     "src": "/images/wp/accountant-for-nurses-popo7rlegnkfvs27uld22ks1tfrnbtj4x8jh8b51j6.jpeg",
+     "alt": "accountants for nurses"
+    }
+   ],
+   "seoTitle": "Accountants for Nurses Ireland - MedicalAccountant.ie - MedicalAccountant.ie",
+   "description": "Accountants for Nurses - Our seamless, simple service means peace of mind – you’ll know everything’s handled by experts."
+  },
+  "ihca": {
+   "h1": "Accountants for IHCA Members",
+   "lead": [
+    "Specialist accounting, taxation and practice structuring advice for Ireland’s hospital consultants."
+   ],
+   "blocks": [
+    {
+     "t": "h2",
+     "html": "Specialist Accountants For IHCA Members"
+    },
+    {
+     "t": "p",
+     "html": "We are an appointed preferred provider of accounting and taxation services to members of the Irish Hospital Consultants Association, which represents 4,250 hospital consultants across Ireland."
+    },
+    {
+     "t": "p",
+     "html": "We have specialised in acting for medical professionals for over 20 years, working with hospital consultants, GPs, NCHDs, locums and dentists at every stage of their careers. Our advice is built around how consultant income is actually earned, across public contracts and private practice."
+    },
+    {
+     "t": "h3",
+     "html": "What we provide IHCA members"
+    },
+    {
+     "t": "h3",
+     "html": "Income tax and self-assessment"
+    },
+    {
+     "t": "p",
+     "html": "Your Form 11 prepared and filed on time, with reliefs and expenses properly claimed."
+    },
+    {
+     "t": "h3",
+     "html": "Practice incorporation and structuring"
+    },
+    {
+     "t": "p",
+     "html": "Advice on whether a Limited or Unlimited company, partnership or sole trade suits your practice."
+    },
+    {
+     "t": "h3",
+     "html": "Company accounts and compliance"
+    },
+    {
+     "t": "p",
+     "html": "Statutory accounts, CRO filings, corporation tax returns and payroll handled in one place."
+    },
+    {
+     "t": "h3",
+     "html": "VAT and private practice billing"
+    },
+    {
+     "t": "p",
+     "html": "Treatment of consultant fees, hospital invoicing and VAT obligations where they apply."
+    },
+    {
+     "t": "h3",
+     "html": "Year-round tax planning"
+    },
+    {
+     "t": "p",
+     "html": "Regular reviews so your tax position keeps pace with your contract, income and family circumstances."
+    },
+    {
+     "t": "h3",
+     "html": "How do I keep my taxes to a minimum?"
+    },
+    {
+     "t": "p",
+     "html": "We keep tax minimum by advising on how best to structure your business."
+    },
+    {
+     "t": "ul",
+     "items": [
+      "We consider whether a consultant should trade through a limited company or Partnership.",
+      "We will advise if spouses or other family members should participate in the business.",
+      "We advise on claiming expenses which will reduce tax bills.",
+      "We typically carry out bespoke tax planning for each consultant depending upon their individual and financial circumstances."
+     ]
+    },
+    {
+     "t": "h3",
+     "html": "Our specialist team provides a wide range of accounting and business services to Consultants."
+    },
+    {
+     "t": "ul",
+     "items": [
+      "Annual Accounts and Tax Return",
+      "Companies Registration Office (CRO) Returns",
+      "Payroll Management",
+      "Tax Planning",
+      "VAT Returns",
+      "Dealing with Revenue Audits",
+      "Business Review",
+      "Monthly or Quarterly Management Accounts",
+      "Budget and cash flow",
+      "Retirement Planning",
+      "Pension Planning",
+      "Help with Raising Finance",
+      "Set up Ltd Company",
+      "Company Secretarial",
+      "Capital Gain Tax – Entrepreneur Relief",
+      "Unlimited telephone support for ad hoc queries"
+     ]
+    }
+   ],
+   "images": [
+    {
+     "src": "/images/wp/IHCA-rvtucjhswbhjfybfd1eugcprg0z0wcwhfe4ugzfu70.png",
+     "alt": "IHCA"
+    },
+    {
+     "src": "/images/wp/General-Practitioners-accountants-pddmg600eaz3p3gryq3ijw0mutet85qjnu7p690vsy.jpeg",
+     "alt": "GP Accountants"
+    }
+   ],
+   "seoTitle": "IHCA - MedicalAccountant.ie",
+   "description": "Specialist accounting, taxation and practice structuring advice for Ireland’s hospital consultants."
+  },
+  "company-formation": {
+   "h1": "Company Formation for Medical Professionals",
+   "lead": [
+    "Whether you’ve been operating as a Sole Trader and need to incorporate or you’re setting up a completely new company, we can guide you through the process."
+   ],
+   "blocks": [
+    {
+     "t": "h2",
+     "html": "Company Formation Services for Medical Professionals"
+    },
+    {
+     "t": "p",
+     "html": "Setting up a new business can be complicated which is why we’ve put together a comprehensive Company Formation Package at a highly affordable cost."
+    },
+    {
+     "t": "p",
+     "html": "Service Includes:"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "Company Formation",
+      "Registered Office Address",
+      "Business Correspondence Address",
+      "Company Secretarial",
+      "Maintenance",
+      "Company Seal",
+      "Tax Registration"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "We also have in-house expertise to advise on essential issues such as :-"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "Shareholder agreements",
+      "Provide advice to shareholders regarding share capital and the possibility of different classes of shares or dividend policies",
+      "The most tax efficient structure"
+     ]
+    }
+   ],
+   "images": [
+    {
+     "src": "/images/wp/General-Practitioners-accountants-pddmg600eaz3p3gryq3ijw0mutet85qjnu7p690vsy.jpeg",
+     "alt": "GP Accountants"
+    }
+   ],
+   "seoTitle": "Company Formation for Medical Professionals in Ireland",
+   "description": "Company Formation - Setting up a new business can be complicated which is why we’ve put together a comprehensive Company Formation at a highly affordable cost."
+  },
+  "index": {
+   "seoTitle": "Specialist Medical Accountants Ireland - MedicalAccountant.ie",
+   "description": "Specialist Medical Accountants - Medical accountants in Ireland providing specialist accountancy and taxation services to medical professionals."
+  },
+  "contact": {
+   "seoTitle": "Contact - MedicalAccountant.ie",
+   "description": ""
+  },
+  "news": {
+   "seoTitle": "Latest News / Updates - Medicalaccountant.ie",
+   "description": "Latest News / Updates - Medicalaccountant.ie, Stay updated with accounting news and updates with our blog."
+  },
+  "terms": {
+   "seoTitle": "Terms & Conditions - MedicalAccountant.ie",
+   "description": "This sets out the basis on which we are to act, our respective responsibilities and our Standard Terms of Business.",
+   "body": "<p>This sets out the basis on which we are to act, our respective responsibilities and our Standard Terms of Business.</p><h4>Bookkeeping</h4><p>We understand that you require us maintain your bookkeeping records. It was agreed that we should carry out the following services:</p><ul><li>keep the records of receipts and payments</li><li>reconcile the balances with the bank statements</li><li>post and balance the purchase and sales ledgers</li><li>write up your accounting records insofar as they are incomplete when presented to us</li><li>complete the postings to the nominal ledger.</li></ul><p>We understand that you have agreed that your staff will:</p><ul><li>prepare details of the annual stocktaking, suitably priced and extended in a form which will enable us to verify the prices readily by reference to supplier invoices</li><li>prepare details of work-in-progress at the accounting date and make available to us the documents and other information from which the statement is complied</li></ul><p>We would emphasise that we cannot undertake to discover any shortcomings in your systems or any irregularities on the part of your employees, although we will advise you of any such circumstances that we encounter in preparing your accounts</p><p>To enable us to carry out our work you agree:</p><ul><li>to provide full information necessary for dealing with your affairs: we will rely on the information and documents being true, correct and complete and will not audit the information or those documents</li><li>that we can approach such third parties as may be appropriate for information that we consider necessary to deal with your affairs</li></ul><h4>Income Taxation and Partnership Returns</h4><p>We will prepare the sole trade or partnership accounts, where applicable, from your records. We will prepare the income tax computations based on the accounts of your business, if applicable, from the accounting records and other information and explanations provided by you</p><ul><li>We will prepare your personal tax return together with such supporting schedules as are appropriate and we will prepare a computation of your self-assessment liability</li><li>We will send you your tax return (Form 11 Individual or Form 1 Partnership), tax computations and supporting schedules for you to approve and sign. Upon receipt of signed returns we will file and set up payment via ROS on your behalf</li><li>We will deal with The Revenue Commissioners regarding any amendments required to your return and prepare any amended returns which may be required</li><li>We will advise as to possible claims and elections arising from the tax return and from information supplied by you. Where instructed by you, we will make such claims and elections in the form and manner required by the Revenue Commissioners</li><li>We will deal with all communications relating to your return addressed to us by the Revenue Commissioners or passed to us by you. However, if the Revenue Commissioners choose your return for enquiry this work may need to be the subject of a separate assignment in which case we will seek further instructions from you</li><li>We will calculate and advise you of your preliminary income tax obligations</li></ul><p>You are legally responsible for making correct returns by the due date and for payment of tax on time. Failure to meet the deadlines may result in automatic penalties, surcharges and/or interest.</p><p>To enable us to carry out our work you agree:</p><ul><li>that all returns are to be made on the basis of full disclosure of all sources of income, charges, allowances and capital transactions</li><li>to provide full information necessary for dealing with your affairs: we will rely on the information and documents being true, correct and complete and will not audit the information or those documents</li><li>that we can approach such third parties as may be appropriate for information that we consider necessary to deal with your affairs</li><li>to provide us with information in sufficient time for your tax return to be completed and submitted by the due date following the end of the tax year</li><li>to forward to us on receipt copies of all the Revenue Commissioners statements of account, PAYE coding notices, notices of assessment, letters and other communications received from the Revenue Commissioners to enable us to deal with them as may be necessary within the statutory time limits</li><li>to keep us informed about significant changes in your circumstances if they are likely to affect your tax position</li></ul><h4>Value Added Tax (VAT)</h4><p>You have asked us to undertake the completion of your VAT returns. We cannot be held responsible for any penalties or default surcharges arising from the late submission of VAT returns. However, we will endeavour to meet the relevant deadlines if we receive all the company’s VAT records within 10 days of the end of the VAT return period. You have undertaken that you/your staff will ensure that:</p><ul><li>all relevant VAT records are forwarded to us within 10 days of the end of the VAT return period</li><li>valid VAT invoices are received for all payments where VAT is being reclaimed</li><li>the VAT rating of supplies is correctly dealt with, i.e. between positive and zero rates and exempt supplies</li><li>we are notified in writing of any positive-rated own consumption</li><li>any input VAT on non-business expenditure is clearly marked on supporting invoices</li><li>we are notified each quarter of any payments to or for the benefit of directors or staff for fuel used for private mileage, together with the business mileage for each such person, for each quarter</li><li>all supplies made by the business are shown in the records made available to us</li></ul><h4>Management Accounts</h4><p>We understand that you require us to prepare periodic management accounts for your business</p><p>This involves us in completing the writing up of your books and records, insofar as they are incomplete when presented to us, from the information and explanations supplied to us and preparing draft accounts there from for your approval</p><p>We understand that you have agreed that your staff will be responsible for:</p><ul><li>maintaining records of all receipts and payments of cash</li><li>reconciling cash book balances with the bank statements</li><li>post and balance the purchase and sales ledgers</li><li>extract a detailed list of ledger balances</li><li>You will also provide estimates of any stocks at the end of each period</li><li>You understand that we will not be carrying out an audit and accordingly will not verify the assets and liabilities of the business, nor the items of expenditure and income</li></ul><p>We would emphasise that we cannot undertake to discover any shortcomings in your systems or any irregularities on the part of your employees or others, although we will advise you of any such circumstances that we encounter in preparing your accounts</p><p>The accounts are not suitable for submission with the self-assessment tax return, or for summary thereon. The management accounts are prepared solely for the confidential use by yourself. The management accounts must not be recited or referred to in whole or in part in any other document. The management accounts must not be made available, copied or recited to any other party without our express permission.</p><p>TaxLink &amp; Investments Ltd T/A Medicalaccountant.ie neither owes nor accepts any duty to any other party and shall not be liable for any loss, damage or expense of whatsoever nature which is caused by their reliance on the management accounts</p><h4>Statutory Accounts</h4><p>You have instructed us to prepare your financial statements. The choice of the most appropriate financial reporting framework (FRS 102 or FRS 105) will be discussed with you and it is your responsibility for the final decision made in this matter.</p><p>You are responsible for determining whether, in respect of each financial year, the company meets the conditions for exemption from audit, as set out in Sections 358 and 360, Companies Act, 2014 [non-group situation]; Sections 359 and 360, Companies Act, 2014 [group situation]; Section 964, Companies Act, 2014 [DAC]; Section 1173, Companies Act, 2014 [CLG]; Section 1230, Companies Act, 2014 [ULC]; Section 365, Companies Act, 2014 [dormant company].</p><p>You are also responsible for determining whether the audit exemption is not available for any of the reasons set out in Sections 361, 362, 363 and 364, Companies Act, 2014 (where applicable).</p><p>You are responsible for determining whether, in respect of each financial year, the company meets the conditions for qualifying for the optional Micro Entities regime as set out in the Companies (Accounting) Act, 2017.</p><p>It was agreed that we should carry out the following accounting and other services:</p><ul><li>write up the accounting records of the business insofar as they are incomplete where presented to us</li><li>complete the postings to the nominal ledger</li><li>prepare the accounts for approval by yourselves</li><li>You have agreed that your staff will:</li><li>keep the records of receipts and payments</li><li>reconcile the balances monthly with the bank statements</li><li>post and balance the purchase and sales ledgers</li><li>extract a detailed list of ledger balances</li><li>prepare details of the annual stocktaking, suitably priced and extended in a form which will enable us to verify the prices readily by reference to suppliers’ invoices; and</li><li>prepare details of work-in-progress at the accounting date and make available to us the documents and other information from which the statement is compiled</li></ul><p>We will not be carrying out an audit and accordingly will not verify the assets and liabilities of the business, nor the items of expenditure and income. To carry out an audit would require additional work to comply with International Standards on Auditing so that we could report on the truth and fairness of the accounts. We can arrange such an audit to be carried out, at your request, but it will need to be done subject to company law and regulation and will require a separate quotation.</p><p>We would emphasise that we cannot undertake to discover any shortcomings in your systems or any irregularities on the part of your employees, although we will advise you of any such circumstances that we encounter in preparing your accounts.</p><p>To ensure that anyone reading the financial statements is aware that we have not carried out an audit we will annex to the financial statements a short report. This report must remain attached to any accounts shown to any other parties.</p><p>Accounts need to be completed prior to submission of the corporation tax return. Failure to submit the return on time will result in penalties and is likely to result in interest and surcharges and could result in a Revenue Audit. In order to avoid this, we must have your accounting records in good time before the statutory filing deadline and queries raised on those accounting records must be answered promptly, otherwise we cannot guarantee the completion of the accounts to ensure the tax return’s timely submission. We reserve the right to levy an additional fee where records are not received in good time.</p><h4>Payroll</h4><p>New payroll requirements, called PAYE modernisation (PMOD) of the Revenue Commissioners are in force from 1 January 2019. PAYE Modernisation will not change the way your organisation calculates PAYE. It means that employers will need to report pay and statutory deductions to Revenue in respect of each employee, as and when employees are paid.</p><p>We will prepare your payroll for each payroll run to meet employment tax requirements, specifically:</p><ul><li>calculating the pay as you earn (PAYE) income tax deductions;</li><li>calculating the employees’ PRSI deductions;</li><li>calculating the employer’s PRSI liabilities;</li><li>calculating other statutory payments, for example, USC and local property tax (LPT);</li><li>calculating employee and employer pension contributions for employees who are members of workplace pension schemes on the basis of the information that you provide to us;</li><li>calculating other statutory (e.g. benefits in kind (BIK), such as use of a company car, paid health insurance or gym membership provided to employees/Directors) and non-statutory deductions; and</li><li>submitting information online to the Revenue Commissioners via the Revenue Online Service (ROS).</li></ul><p>Before the time of payment through the payroll or due date, we will prepare and send to you the following for each pay run for delivery to the Revenue Commissioners, as follows:</p><ul><li>payroll summary report showing the reconciliation from gross to net for each employee and all relevant payroll totals;</li><li>report showing taxable pay and deductions for each employee;</li><li>a payslip for each employee;</li><li>report of the details of employees ceasing employment since the last payroll run (which replaces the old P45);</li><li>report showing your PAYE and PRSI liability and due date for payment (which replaces the old P30 and annual P35); and</li><li>report of employee and employer pension contributions payable in respect of each employee to the respective workplace pension scheme(s) of which they are members and the due date(s) for payment.</li></ul><p>We will submit your Payroll Submission Request (PSR) (previously known as the P30), for each payroll run, online to the Revenue Commissioners on the basis of the data provided by you on the payroll date. Electronic payment of taxes due must reach the Revenue Commissioners by the 23rd of the month following the tax month to which they relate, if you are a monthly remitter. (If you are a quarterly or annual remitter, monthly returns will be filed, but your quarterly/annual payment dates will remain the same.) You must ensure that the data provided to us is complete and accurate and your attention is drawn to your legal responsibilities as set out below.</p><p>We will deal with any online secure messages sent to us by the Revenue Commissioners in respect of your payroll, for example, Revenue Payroll Notifications (RPNs) (formerly known as tax credit notifications or P2Cs) and other such notices.</p><h4>Your continuing obligations to us</h4><p>In order to allow us to provide you with the most efficient and accurate payroll bureau service under the PMOD regime, you accept that you have the following responsibilities:</p><ul><li>RPNs – Revenue Payroll Notifications (RPNs) for each pay period, replace the current tax credit retrieval process (P2C). RPNs will be retrieved by us electronically from ROS at the beginning of each payroll run. Each payroll run will be processed using the data from the RPN. It is not possible to override this data. It is the responsibility of the individual employee to arrange with</li><li>Revenue for any alterations to their RPNs;</li><li>Monthly Statements – Payroll Submission Request (PSR): this periodic file will need to be submitted to Revenue ‘on or before’ each pay period and you agree that you will be responsible for its accuracy and for updating us with any changes in good time to meet the Revenue deadline. After submitting the PSR you will receive a statement from Revenue summarising the information, already reported. This will be available on ROS to review on the 5th day of the month and you must forward this information to us, or advise us of corrections, as soon as possible;</li><li>Corrections – you must update us with any payroll corrections promptly. Corrections to the Monthly Statement must be made before the 14th of every month. After that it becomes a statutory return and the tax shown thereon, becomes payable on the 23rd of each month. Where an employer does not accept or edit the statement, Revenue will deem it to be accepted;</li><li>Employees and PPSNs – you have an obligation to ensure that you have the correct Personal Public Service Number (PPSN) for each of your employees and that the list of employees/Directors is accurate and up to date for each payroll run;</li><li>Official certificate of earnings and deductions – each employee will no longer received a P60 but instead will be able to view and print their official certificate of earnings and deductions from Revenue (‘MyAccount’). You agree that you are responsible for informing your employees of this new system;</li><li>to make full disclosure in a timely manner, (e.g. of the details of all wages and salary transactions, as well as maternity/paternity and other related adjustments, such as LPT) relevant to employee payroll and to provide all information required by us;</li><li>to provide full information necessary for dealing with your payroll tax affairs: we will rely on the information and documents being true, correct and complete and will not audit the information or those documents;</li><li>to authorise us to approach such third parties as may be appropriate for information that we consider necessary to deal with your affairs; and</li><li>to provide us with details of any communications received from the Revenue Commissioners which could have an impact on payroll taxes.</li></ul><h3>Your Responsibilities</h3><p>Employers cannot delegate these legal responsibilities to others.</p><p>You are no less responsible for errors in unapproved returns, submitted on the basis of the information provided to and processed by us, than if you had confirmed your approval of the returns. Even though you are engaging us to help you meet your payroll obligations, you are still legally responsible for:</p><ul><li>ensuring that the data in your payroll submissions is correct and complete;</li><li>that Payroll Submission Requests (PSR) are submitted to Revenue on or before each payroll run;</li><li>making any submissions by the due date; and</li><li>paying tax and PRSI on time.</li></ul><p>Failure to do any of the above may lead to penalties and/or interest. To enable us to carry out our work, you agree:</p><ul><li>that all information required to be delivered online is submitted on the basis of full disclosure;</li><li>to provide full information necessary for dealing with your payroll affairs and workplace pension scheme contributions; we will rely on the information and documents being true, correct and complete and will not audit the information or those documents;</li><li>to agree with us the name(s) of the person(s) authorised by you to notify us of changes in employees and in rates of pay and other information relevant to the services provided under this schedule; we will process the changes only if notified by that/those individual(s);</li><li>to advise us in writing of changes of payroll pay dates;</li><li>to notify us at least 7 working days [or such other period as agreed with us] before the payroll pay date of all transactions or events which may need to be reflected in the payroll for the period, including details of:</li><li>all new employees (including full names, address, date of birth, gender, PPS number, their start date and starter form) and details of their remuneration package;</li><li>for employees who are active pension scheme members, name of pension scheme, pensionable pay, employee and employer contribution rates, dates from/to which contributions payable;</li><li>all changes to remuneration packages;</li><li>employee expenses which need to be included in payroll to account for either income tax or PRSI purposes or both;</li><li>information necessary to enable us to calculate statutory payments, i.e. statutory maternity pay, statutory adoption pay, statutory paternity pay;</li><li>irregular and/or ad hoc payments and the dates to be paid; and</li><li>all leavers, their leaving date, termination payments, and any payments made after the leaving date.</li><li>to keep us informed of changes in circumstances that could affect the payroll; if you are unsure whether a change is material, please tell us so we can assess its significance;</li><li>to authorise us to approach such third parties as may be appropriate, for information that we consider necessary to deal with your payroll.</li></ul><p>If the information required to complete the payroll services set out above is received later than the dates specified above or agreed with us, we will still endeavour to process the payroll and returns to meet the filing deadlines; but we will not be liable for any costs or other losses arising if the payroll is late or the returns are filed late in these circumstances.</p><p>If you require us to make a correction after the online return has been submitted, you will let us know as soon as possible and, ideally, before the next payroll run.</p><p>You will forward to us any communications received from the Revenue Commissioners., in sufficient time to enable us to deal with them as may be necessary within the requisite time limits.</p><p>Although the Revenue Commissioners. have the authority to communicate with us when formally authorised to do so in writing, it is essential that you let us have copies of any correspondence received by you, or through the secure Revenue Online portal (ROS), because the Revenue Commissioners are not obliged to send us copies of communications issued to you and, in most cases, will not do so.</p><p>You should also keep a note of any telephone communication you have with the Revenue Commissioners helpline, including the date and time of the call, and the name of the helpline operator(s).</p><h4>Penalties</h4><p>Please be aware that the Revenue is entitled to impose heavy sanctions for non-compliance with these requirements and we cannot be held responsible for these, if you do not communicate the relevant information or changes to us in good time. These penalties, which are not tax deductible, may include a penalty of €4,000 per breach, for example (and this is not a complete list):</p><ul><li>If you do not follow a Revenue Payroll Notification (RPN);</li><li>If you do not inform Revenue when an employee has ceased employment;</li><li>If you do not hold a Register of Employees at your business address.</li></ul><p>We confirm that we will at all times comply with the requirements of the Data Protection Act when processing data on your behalf. In particular we confirm that we have adequate security measures in place and that we will comply with any obligations equivalent to those placed on you as a data controller</p><p>We will assist you in preparation of Relevant Contracts Tax (RCT) returns and where necessary file and set up payment on your behalf via ROS</p><p>We can also offer you advice in the following related areas:</p><ul><li>casual labour</li><li>subcontractors</li><li>benefits for employees and directors</li></ul><h4>Data Processing Terms and Conditions – Payroll Services</h4><p>These terms and conditions apply to the processing of your personal data by [Company name not set] Ltd (“we”, “our”, “us”) for the purpose of providing you with our payroll service.</p><h3>Definitions</h3><ul><li>“Applicable Laws” mean (for so long as and to the extent that they apply to us) the law of the European Union, the law of any member state of the European Union and/or Domestic Republic of Ireland Law.</li><li>“Data Protection Laws” mean the Republic of Ireland Data Protection Laws and (for so long as and to the extent that the law of the European Union has legal effect in the Republic of Ireland) the General Data Protection Regulation 2016/679 and any other directly applicable European Union regulation relating to privacy.</li><li>“Domestic Republic of Ireland Law” means the Republic of Ireland Data Protection Laws and any other law that applies in the Republic of Ireland.</li><li>“Personal Data” means the data described in the Schedule, and any other personal data processed by us on your behalf pursuant to or in connection with the provision of our payroll service.</li><li>“Republic of Ireland Data Protection Laws” mean any Data Protection Laws from time to time in force in the Republic of Ireland including the Data Protection Act 1998 (until repealed) and, from 25 May 2018, the general data protection regulation 2016/679 (GDPR).</li><li>The terms “Data Controller”, “Data Processor”, “Data Subject” and “personal data” have the same meanings ascribed to them in the Data Protection Laws.</li></ul><h3>Data Protection</h3><ul><li>Both parties (we and you) will comply with all applicable requirements of the Data Protection Laws.</li><li>You agree that for the purposes of the Data Protection Laws where we provide our payroll service to you, you are the Data Controller and we are the Data Processor in respect of Personal Data.</li><li>Part 1 of the Schedule sets out the scope, nature and purpose of processing by us, the duration of the processing and the types of personal data and categories of Data Subject.</li><li>You undertake that you have obtained all necessary and appropriate consents and notices in place to enable you to lawfully transfer the Personal Data to us for the duration and purposes of us providing the payroll service to you.</li><li>We may only process the Personal Data on your written instructions, unless we are required by Applicable Laws to do otherwise. You agree that our written instruction (pursuant to these terms) is to process the Personal Data to provide our payroll service to you.</li></ul><h3>Confidentiality</h3><p>We will ensure that all personnel who have access to and/or process Personal Data are obliged to keep the Personal Data confidential.</p><h4>Security</h4><p>We will implement appropriate technical and organisational measures to ensure a level of security that is appropriate to the risks that are presented by us processing the Personal Data, in particular from accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to personal data transmitted, stored or otherwise processed.</p><h4>Transfer of Personal Data</h4><p>We will not transfer any Personal Data to countries outside of the European Economic Area unless appropriate safeguards have been provided and the country or countries in question provide enforceable rights and effective legal remedies for the Data Subject.</p><h4>Rights of Data Subjects</h4><p>Where reasonably requested and at your cost, we will assist you in responding to any request from a Data Subject and in ensuring compliance with your obligations under the Data Protection Laws with respect to security, breach notifications, impact assessments and consultations with supervisory authorities or regulators.</p><p>We will notify you without undue delay on becoming aware of a Personal Data breach.</p><h4>Deletion or return of Personal Data</h4><p>Subject to us receiving a written request from you, we will delete or return Personal Data and copies thereof to you on termination of the payroll service unless we are required by Applicable Law to store the Personal Data.</p><h4>Audit rights</h4><ul><li>We will maintain all reasonable records and information in order to demonstrate our compliance with the Data Protection Laws.</li><li>We will make available to you all information necessary to demonstrate our compliance with the obligations laid down in the Data Protection Laws and we will permit you (or an auditor instructed by you), on providing at least 30 days’ prior written notice, to audit our compliance with these terms. Any such audit including inspection may be conducted no more than once per year and may only be performed during our business hours.</li><li>Before being provided with any information or conducting any audit pursuant to this clause, we may request that you enter into a suitable binding confidentially agreement.</li><li>If an audit identifies that we have failed to comply with our obligations under the Data Protection Laws (or any of them) then you will provide us with a copy of the written audit report and, subject to our prior review of the report and the veracity of its contents, we will take such steps we deem necessary to comply with our obligations.</li><li>Both parties (we and you) will bear their own costs and expenses incurred in respect of compliance with their obligations under this clause.</li></ul><h4>Sub-processors</h4><p>You authorise us to appoint third parties to process the Personal Data for payroll services (“sub-processors”), provided that we notify you about any intended changes concerning the addition or replacement of other processors, and thereby give you an opportunity to object to such changes.</p><p>With respect to each sub-processor appointed under these terms, we confirm that we will enter into a written agreement with each of them incorporating terms which are substantially similar to those set out in these terms.</p><p>We will remain fully liable to you for all acts or omissions of any sub-processor appointed by us pursuant to these terms.</p><p>You hereby authorise us to appoint one or more of the authorised sub-processors set out in Part 2 of the Schedule.</p><h4>Costs</h4><p>We reserve the right to charge for, and where this is exercised you undertake to pay, our reasonable costs and expenses that we incur in meeting your requests under these terms.</p><h4>Schedule</h4><h4>Part 1 – Details of processing of personal data</h4><h4>Subject matter and duration</h4><p>– We will process personal data relating to your employees in the course of providing, and for as long as we are engaged to provide, the payroll service.</p><h4>Nature and purpose of processing</h4><p>– Payroll processing services.</p><h4>Types of personal data</h4><p>Relevant information for employees in order to perform payroll services, such as:</p><ul><li>Name, postal address and email address</li><li>PPS number</li><li>Revenue Commissioners information</li><li>Bank account details</li><li>Pension details</li><li>Proof of identity</li><li>Leave records</li><li>Contract of employment &amp; HR details</li><li>Next of kin details</li></ul><h4>Categories of data subject</h4><ul><li>Employees of [Client Business Name Not Set]</li></ul><h4>Company Secretarial</h4><p>A private limited company is required to file its accounts at the Companies Registration Office (CRO) within the prescribed deadline, referred to as it next annual return date (NARD). The company will be liable to a late fee and the statutory accounts will require an audit for two years if it is late. In order to avoid this we will produce statutory accounts, suitable for filing by the NARD, provided all your records are complete and presented to us in a timely manner.</p><p>We have agreed to act as your agent and to:</p><ul><li>submit the accounts and annual return to the CRO</li><li>complete and submit any other forms required by law to the CRO, provided that you keep us fully informed of any relevant changes, for example changes in Directors or Shareholders</li><li>maintain the statutory books and records</li></ul><h4>Corporation Tax</h4><p>We will prepare from the accounts and other information and explanations provided by you the company’s corporation tax return and computations, together with all supporting schedules and, where necessary, amended returns</p><p>We will send you the tax return and supporting schedules for you to approve and sign. We will then file and set up payment via ROS, with your authorisation</p><p>We will advise you of the amounts of corporation tax to be paid, your preliminary tax obligations and the dates by which the company should make the payments. Where appropriate we will initiate repayment claims when tax has been overpaid</p><p>We will advise as to possible claims and elections arising from the tax return and from information supplied by you. Where instructed by you, we will make such claims and elections in the form and manner required by the Revenue Commissioners</p><p>We will deal with all communications relating to the company’s tax return addressed to us by the Revenue Commissioners or passed to us by the company. However, if the Revenue Commissioners choose your return for enquiry this work may need to be the subject of a separate assignment in which case we will seek further instructions from you</p><p>We will prepare the tax provisions and disclosures to be included in the company’s statutory accounts</p><p>Where the company has made a loan to a participator such as a shareholder, tax is payable. We can be responsible for advising you of the tax payable only if you notify us of details of such loans before the end of the relevant accounting period</p><p>You are legally responsible for making correct returns by the due date and for payment of tax on time. Failure to meet the deadlines may result in automatic penalties and/or interest</p><p>To enable us to carry out our work you agree:</p><ul><li>that all returns are to be made on the basis of full disclosure of all sources of income, charges, allowances and capital transactions</li><li>to provide full information necessary for dealing with the company’s affairs: we will rely on the information and documents being true, correct and complete and will not audit the information or those documents</li><li>that we can approach such third parties as may be appropriate for information that we consider necessary to deal with the company’s affairs</li><li>to provide us with information in sufficient time for the company’s tax returns to be completed and submitted by the statutory filing date</li><li>to keep us informed about significant transactions or changes in circumstances</li></ul><h4>Additional Services</h4><p>There are many other areas where we can be of assistance and we shall be pleased to discuss any matters with you. These other services include:</p><ul><li>statutory company audit</li><li>reports in support of returns or claims, e.g., insurance company certificates, government claims, etc</li><li>advice on financial matters</li><li>management accounting, including such matters as cash flow statements, costing systems etc, and advice on management</li><li>advice on the selection and implementation of computer systems</li><li>investigations for special purposes, e.g., acquisitions of other businesses, or examination of specific aspects of your business</li><li>advice on the selection and recruitment of staff</li></ul><h4>Agreement of Terms</h4><p>Our Services are supplied only on the terms set out in this document and the Standard Terms of Business below. We should be grateful if would confirm your agreement to these terms by signing the enclosed letter and returning it to us. However, we shall be entitled to rely on your implied consent should you continue to instruct us or request we start work on the accounts.</p><p>Once it has been agreed, this letter and the Standard Terms of Business below will remain effective until they are replaced.</p><p>The following standard terms of business apply to all engagements accepted by TaxLink &amp; Investments Ltd T/A Medicalaccountant.ie. All work carried out is subject to these terms except where changes are expressly agreed in writing.</p><h4>Standard Terms of Business</h4><h4>Anti-Money Laundering Requirements</h4><p>Under anti-money laundering legislation and in accordance with the guidelines set down by our accountancy body, it is necessary for us to verify your identification and home address.</p><p>Please provide us with originals of the following:</p><ul><li>Proof of identity, such as passport or driving licence.</li><li>Proof of home address, such as a recent utility bill. (no more than three months old, not a mobile phone nor internet generated bill).</li></ul><p>We will arrange to copy these original documents while you wait (if you wish) , and return them to you in a secure fashion, as soon as possible.</p><h4>Anti-Money Laundering Reporting Obligations</h4><p>The Criminal Justice (Money Laundering and Terrorist Financing) Acts, 2010 to 2018, designate accountants and tax advisors for the purposes of the anti-money laundering provisions. These provisions include requirements to establish certain procedures and impose reporting obligations in respect of suspicions regarding offences under the money laundering legislation.</p><h4>Accountants and tax advisors are required to;</h4><ul><li>Verify the identity of new clients;</li><li>Retain records of identification for at least five years from the date of last doing business with the client;</li><li>Retain original documentation relating to transactions for a period of at least five years following the execution of the transaction;</li><li>Establish measures to prevent and detect money laundering;</li><li>Report suspicions of money laundering to the Garda Siochana and the Revenue Commissioners;</li><li>Establish procedures to ensure all transactions connected with certain designated states and territorial units are reported;</li><li>Ensure adequate control over client monies.</li><li>Establish the names of the beneficial owners of client’s businesses or entities controlled by clients and</li><li>Establish the identities of clients who may be Politically Exposed Persons, (as defined in the legislation)</li></ul><p>We have responsibilities under the Criminal Justice (Terrorism Offences) Act, 2005, to report suspicions of the financing of terrorism. We are also obliged to adopt measures to prevent and detect the commission of an offence of financing terrorism and are obliged to train employees for the purpose of enabling them to identify transactions which may relate to the commission of an offence of financing terrorism.</p><h4>Legal Responsibilities Regarding Taxation</h4><p>Section 1079 of the taxes consolidation act 1997 provides that all tax advisers who become aware in the course of their normal work of material tax evasion or non-compliance committed by a client company must report this to the company and request that the matter be rectified or that the company should report the offence to Revenue. It further provides that if, at the end of 6 months, it is not established to the satisfaction of the auditor or adviser that the matter has been so rectified or reported, the auditor or adviser must cease to act as auditor, or cease to assist or advise the company in tax matters. Any resignation under this section must also be reported to Revenue.</p><p>The question of whether there is material tax evasion is a matter for the adviser in any particular case to assess taking account of his/her own professional standards and the requirements of the section.</p><p>The responsibility for detection of error or non-compliance with law or regulations in relation to taxes and in relation to information in respect of which you have collection, filing and/or payment obligations rests with you. Unless otherwise expressly agreed between us as a separate engagement, we shall not have any obligations for the preparation, accuracy or filing of returns or the discharge of liability for any taxes or duties, including corporation tax, VAT, PAYE / PRSI, DIRT, RCT, stamp duty, customs or excise duties or for the preparation and filing of third party information returns (e.g. Forms 46G). We will of course be happy to provide, on terms to be agreed between us, suggestions and advice on how best to satisfy your obligations under these particular headings.</p><h4>Electronic Communication</h4><p>In the course of the engagement we may communicate with you electronically. However, as you are aware the electronic transmission of information cannot be guaranteed to be secure or error free and such information could be intercepted, corrupted or lost, destroyed, arrive late or incomplete or otherwise be adversely affected or unsafe to use. Accordingly, whilst we will use commercially reasonable procedures to check for the then most commonly know viruses before sending information electronically and notwithstanding any collateral contract, warranty or representation, neither we nor our partners, employees, agents or servants shall have any liability to you on any basis, whether in contract, tort (including negligence) or otherwise, in respect of any error or omission arising from or in connection with the electronic communication of information to you and your reliance on such information and including (but not limited to) the acts or omissions of our service providers. Such exclusion of liability shall not apply to us in the event of such acts, omissions or misrepresentations which are in any case criminal, dishonest or fraudulent on the part of our partners, employees, agents or servants.</p><p>If the communication relates to a matter of significance on which you wish to rely and you are concerned about the possible effects of electronic transmission you should request a hard copy of such transmission from us. If you wish us to password protect all or certain documents transmitted you should discuss this with us and we will make appropriate arrangements.</p><h4>Data Protection</h4><p>We confirm that we comply with Data Protection Laws when processing your personal data. “Data Protection Laws” means the Data Protection Act 1998 (until repealed) and, from 25 May 2018, the General Data Protection Regulation 2016/679 (“GDPR”) and any legislation that implements the GDPR in The Republic of Ireland, the Privacy and Electronic Communications (EC Directive) Regulations</p><p>2003 and all applicable laws and regulations which may be in force from time to time relating to the processing of personal data and privacy, including where applicable the guidance and codes of practice issued by the Information Commissioner or any other supervisory authority, and the equivalent of any of the foregoing in any relevant jurisdiction.</p><p>The controller of your personal data is Ross Lynam and the primary use of your personal data will relate to the provision of our services. We process this personal data because it is necessary for the performance of the contract between us. We may also process your personal data for marketing purposes. Our privacy policy explains in more detail our lawful basis for this processing.</p><p>You will also have received our opt-in statements. If you would like to receive newsletters and/or marketing communications from us then please tick where indicated in the boxes on that statement.</p><h4>Retention of and Access to Records</h4><p>During the course of our work we will collect information from you and others acting on your behalf and will return any original documents to you following the preparation of your financial statements and returns. Whilst certain documents may legally belong to you, we intend to destroy correspondence and other papers that we store which are more than seven years old, other than documents which we consider to be of continuing significance. It you require retention of any document you must notify us of that fact in writing.</p><p>We reserve the right to use subcontractors to prepare aspects of our work and you acknowledge that your books and records may not necessarily be stored or located at this office for the duration of the assignment.</p><h4>Applicable Law</h4><p>This engagement letter shall be governed by, and construed in accordance with Republic of Ireland Law. The courts of the Republic of Ireland shall have exclusive jurisdiction in relation to any claim, dispute or difference concerning the engagement letter and any matter arising from it. Each party irrevocably waives any right it may have to object to an action being brought in those courts, to claim that the action has been brought in an inconvenient forum, or to claim that those courts do not have jurisdiction.</p><h4>Quality Service</h4><p>We shall endeavour at all times to provide you with a professional service of the highest quality. If however, you are dissatisfied with our service in any way you should contact the practice partner and we will undertake to look into any complaint carefully and promptly. If we have given you a less than satisfactory service, we shall undertake to do everything reasonable to put it right.</p><p>In the event that you are still dissatisfied, you may make a formal complaint to our Accountancy body.</p><p>If you feel that a complaint is not properly addressed or if you consider that the partner responsible for your affairs is not appropriate for the initial contact, please contact the TaxLink &amp; Investments Ltd T/A Medicalaccountant.ie head office on 01 254 94 90</p><h4>Fees</h4><p>TaxLink &amp; Investments Ltd T/A Medicalaccountant.ie operate a fixed fee policy for all clients. We hope that this offers our clients peace of mind and offers absolute clarity over the price you will be charged for the work we have outlined. Our fixed fee is determined by (amongst a number of factors), the standard of books and records that you keep and levels of skill and responsibility involved. This price will have been set prior to this letter of engagement for an agreed period. If it is necessary to carry out work outside the responsibilities outlined in this letter it will involve additional fees. Accordingly we would like to point out that it is in your interest to ensure that your records are completed to the agreed stage. We reserve the right to increase our fees subject to prior notice by at least inflation on an annual basis.</p><p>If it is necessary to carry out work outside the responsibilities outlined in this letter it will involve additional fees. Accordingly, we would like to point out that it is in your interests to ensure that your records etc. are completed to the agreed stage.</p><p>It is our normal practice to request that clients make arrangements to pay a proportion of their fee on a monthly direct debit. These standing orders will be applied to fees arising from work agreed in this letter of engagement for the current and ensuing years. Once we have been able to assess the amount of work and time involved, we would be grateful if you would agree to pay an amount to us on a regular basis.</p><p>Our terms relating to payment of amounts invoiced and not covered by standing orders, where appropriate, are strictly 21 days net. We reserve the right to add an interest charge at a rate of 2% per month simple interest together with any solicitors and/or collection agents’ costs incurred on any bills remaining unpaid 21 days after presentation.</p><p>You, the client, and/or the directors of the company (if applicable) jointly and severally guarantee personally that all fees will be paid within the payment terms.</p><h4>Limitation of Liability</h4><p>We will provide our professional services with reasonable care and skill. However, we will not be held responsible for any losses arising from the supply by you or others of incorrect or incomplete information, or your or others’ failure to supply any appropriate information or your failure to act on our advice or respond promptly to communications from us or other relevant authorities.</p><p>You agree to hold harmless and indemnify us against any misrepresentation, whether intentional or unintentional, supplied to us orally or in writing in connection with this agreement. You have agreed that you will not bring any claim in connection with services provided to you by the firm against any of our employees on a personal basis.</p><p>You agree that our total liability to you for any loss or damage suffered by you (or by any such other party) arising from or in connection with the Engagement shall be limited to the lower of the figures produced by the operation of the following two sections:</p><h4>Cap</h4><p>Our liability to you in respect of our breach of contract or our breach of duty or fault or negligence or otherwise whatsoever arising out of or in connection with the Engagement shall be limited in total fees charged to you by us under the Engagement to cover any direct liabilities or claims arising out of or in connection with the Engagement. This provision shall have no application to any liability for death or personal injury or any other liability for which exclusion or restriction is prohibited by law.</p><p>Where there is more than one party to the Engagement Letter (other than us), the limit of the liability will have to be allocated among you. It is agreed that, save where an allocation is expressly stated in an Engagement Letter, such allocation will be entirely a matter for you and you shall be under no obligation to inform us of the allocation. If (for whatever reason) no such allocation is agreed, then joint and several liability shall be presumed and you shall not dispute the validity enforceability or operation of the limit of liability on the ground that no such allocation was agreed.</p><h4>Proportionality</h4><p>Our liability to you in respect of our breach of contract or our breach of duty or fault or negligence or otherwise whatsoever arising out of or in connection with the Engagement, shall be limited to that proportion of the direct loss or damage (excluding interest and costs) suffered by you, which is directly ascribed to us. The determination of such proportion is to be agreed between the parties or failing such agreement by a court of competent jurisdiction allocating proportionate responsibility to us having regard not only to our degree of fault in relation to the loss and damage in question but also to the respective degree of fault of any other person, including you (but without regard to the extent to which you can actually recover any part of the loss from any such person). This provision shall have no application to any liability for death or personal injury nor to any liability arising as a result of fraud on our part (or for which we are vicariously liable) nor to any indirect liability (including but not limited to consequential or economic loss) nor to any liability which cannot lawfully be excluded or limited under any law or statute.</p><p>For the purpose of assessing the contribution to the direct loss and damage in question of any other person pursuant to the preceding paragraph, it is agreed that no account shall be taken of any limit imposed or agreed on the amount of liability of such person by any agreement (including any settlement agreement) made before or after the loss and damage in question occurred.</p>",
+   "lead": "This sets out the basis on which we are to act, our respective responsibilities and our Standard Terms of Business."
+  },
+  "thank-you": {
+   "seoTitle": "Thank you - MedicalAccountant.ie",
+   "description": "Thank you for sharing your details, Our team will be in touch with you shortly. "
+  }
+ },
+ "posts": [
+  {
+   "slug": "capital-gain-tax-when-is-the-cgt-deadline-ireland",
+   "title": "Capital Gain Tax - When is the CGT Deadline",
+   "seoTitle": "Capital Gain Tax - When is the CGT Deadline - MedicalAccountant.ie",
+   "description": "It is your responsibility to calculate what CGT is due, file the appropriate return and pay the liability on time.",
+   "date": "2024-11-29",
+   "modified": "2024-11-29",
+   "image": "/images/wp/capital-gain-tax-deadline.jpg",
+   "imageAlt": "capital gain tax deadline",
+   "body": "\n\t\t\t\t\n\t\t\t\t\t<h2><b>Capital Gains Tax (CGT)</b></h2>\n<p><a href=\"https://taxlinkaccountants.ie/capital-gain-tax/\">Capital Gains Tax (CGT)</a> is a tax on the profit made from selling assets such as property or shares. It’s essential to be aware of the deadlines for CGT payments to ensure compliance and avoid penalties. Some common assets that people sell, that are subject to CGT, include investment property and common stocks and shares.</p>\n<h3><b>CGT Payment Deadlines:</b></h3>\n<p><b>Sales from 1st January to 30th November:</b> For assets sold during this period, CGT must be paid by <b>15th December</b> of the same year. For example, if you sell an asset in October 2024, the CGT payment is due by 15th December 2024.</p>\n<p><b>Sales in December:</b> For assets sold between 1st and 31st December, the CGT payment is due by <b>31st January</b> of the following year. Therefore, a sale in December 2024 requires CGT payment by 31st January 2025.</p>\n<p>It is your responsibility to calculate what CGT is due, file the appropriate return and pay the liability on time. The CGT return is called a Form CG1.</p>\n<p>It is also important to note, in respect of assets disposed of up to 30 November 2024, that while you pay the CGT in the year the assets are sold, you need to file the return by 31 October of the following year. So, if you sold an asset in 2024 you need to file a return, on or before 31 October 2025.</p>\n<p><strong>Once registered for CGT, payments can be made online through Revenue’s ROS or myAccount platforms.</strong></p>\n<p>As of now, the standard CGT rate in Ireland is <b>33%</b>. However, various reliefs and exemptions may apply, potentially reducing your CGT liability. Engaging in tax planning can help identify opportunities for tax savings.</p>\n<h3><b>Need Assistance?</b></h3>\n<p>Our tax accountants will work closely with you to optimise Capital Gains tax returns through a variety of reliefs and exemptions, a number of which have been created relatively recently.</p>\n<p>The Capital Gains tax is chargeable as a result of gains made from selling or transferring assets, most commonly in the form of the share capital of their business or other significant personal assets (like second homes for example).</p>\n<p>However, tax planning is the key to minimising Capital Gains tax. It is well worth discussing your long term plans with our tax team, so you are able to structure your assets in a way which keeps Capital Gains tax to a minimum when the time comes to sell.</p>\n<p><a href=\"/contact/\">Contact us today for a free, no-obligation consultation.</a></p>\n<p>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t"
+  },
+  {
+   "slug": "ucd-med-week-2023-raises-record-funds-for-charity",
+   "title": "UCD Med Week 2023 Raises Record Funds for Charity",
+   "seoTitle": "UCD Med Week 2023 Raises Record Funds for Charity",
+   "description": "MedicalAccountant.ie proudly supported UCD Med Week 2023, achieving a record-breaking €30,398.73 for a noble cause",
+   "date": "2023-11-21",
+   "modified": "2023-11-21",
+   "image": "/images/wp/UCD-Med-Week.jpg",
+   "imageAlt": "UCD Med Week",
+   "body": "\n\t\t\t\t\n\t\t\t\t\t<p><strong>The spirit of community and charity shone brightly</strong> as <a href=\"https://societies.ucd.ie/event/med-week-2023-year-vs-year-fundraiser/\">UCD Med Week 2023</a> concluded with unprecedented success, raising a record €30,398.73.</p>\n<p>MedicalAccountant.ie is proud to have played a pivotal role in this monumental achievement as a t-shirts sponsor, contributing to the highest-ever in-person collection for the event.</p>\n<p>This year’s MedWeek was more than just a fundraising event; it was a testament to the power of collective effort and compassion. The funds raised are set to make a significant impact on our chosen charity partners, <a href=\"https://dogsfordisabled.ie/\">Irish Dogs for the Disabled</a>. This contribution will fully train two puppies, transforming them into invaluable aids for individuals with disabilities.</p>\n<p></p>\n<p>Our engagement in MedWeek 2023,We were delighted to sponsor the fabulous Med Day t-shirts, a symbol of unity and dedication amongst all participants. The enthusiasm and commitment of every volunteer, from those who baked and quizzed to those who collected donations, were the driving forces behind this remarkable accomplishment.</p>\n<p>As MedicalAccountant.ie, we are more than just a <a href=\"/contact/\">financial advisory firm for medical professionals</a>; we are a community player committed to making a difference. Supporting UCD MedWeek aligns perfectly with our ethos of giving back to the community and fostering positive change.</p>\n<p>We extend our heartfelt gratitude to <a href=\"https://www.instagram.com/ucdmedsoc/\">UCD MedSoc</a>, the tireless volunteers, and everyone who contributed to making this event a resounding success. Your hard work and generosity have set a new benchmark for what we can achieve together.</p>\n<p></p>\n<p>This collaboration exemplifies the potential for positive change when academia, business, and community unite. We look forward to future partnerships and continuing our commitment to impactful philanthropy.</p>\n<p>In closing, a special thanks to UCD MedSoc for sharing the inspiring images and updates on their Instagram page. These glimpses into the week’s events not only highlight the fun and camaraderie but also the collective spirit that defines MedWeek.</p>\n<p>Together, we’ve made a difference. Together, we’ve set a new standard for charitable giving.</p>\n<p>If you looking for a <a href=\"/\">Medical Accountant in Ireland</a>, Get in touch with us.</p>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t"
+  },
+  {
+   "slug": "why-filing-your-return-early-can-be-a-great-deal-for-healthcare-professionals",
+   "title": "Why Filing Your Return Early Can Be a Great Deal for Healthcare Professionals - 7 Reasons to Look At",
+   "seoTitle": "Why Filing Your Return Early Can Be a Great Deal for Healthcare Professionals - 7 Reasons to Look At - MedicalAccountant.ie",
+   "description": "Take the lead this summer and submit your tax return ahead of schedule! This is a strategic move for healthcare professionals in Ireland, as advised by",
+   "date": "2023-07-21",
+   "modified": "2023-07-24",
+   "image": "/images/wp/file-your-tax-return-early-1.jpg",
+   "imageAlt": "file your tax return early (1)",
+   "body": "\n\t\t\t\t\n\t\t\t\t\t<p><strong>Take the lead this summer and submit your tax return ahead of schedule!</strong> This is a strategic move for healthcare professionals in Ireland, as advised by <a href=\"http://Medicalaccountant.ie\">Medicalaccountant.ie</a>.</p>\n<p>Even if you submit your taxes now, you’re not obligated to pay your tax bill until the November deadline. This opportunity to file your tax return early can significantly streamline your financial planning.</p>\n<p>This October, evade the last-minute hustle to compile receipts, invoices, and paperwork for your taxes. Prevent the turmoil of misplaced documents and the frantic rush to get everything to your accountant. Early filing eliminates the worry of missing deadlines or procrastinating your taxes until the last minute.</p>\n<p>Envision a tranquil October! No more frantic searches for receipts or panic because your taxes are already prepared, filed, and submitted while the kids were still enjoying their summer holidays. Remember – early filing of your tax return doesn’t necessitate early payment of your taxes. You can still wait until the standard November due date to pay any tax owed.</p>\n<h2>Here are seven compelling reasons why early tax return filing is a strategic move for doctors, GPs, dentists, and other healthcare professionals:</h2>\n<h3><strong>Extended Consultation with Your Accountant</strong>:</h3>\n<p>Early filing provides more time to meet with your accountant and thoroughly discuss tax planning strategies.</p>\n<h3><strong>Accelerated Tax Refunds</strong>:</h3>\n<p>If you are due a refund, why wait? File early and expedite your refund process.</p>\n<h3><strong>Ample Time for Tax Planning</strong>:</h3>\n<p>Knowing your tax liability early gives you more time to properly budget and financially plan for any taxes owed.</p>\n<h3><strong>Evade Late Filing Penalties</strong>:</h3>\n<p>Late filing can lead to hefty surcharges and financial penalties. Avoid these by filing early.</p>\n<h3><strong>Reduced Stress, Enhanced Relaxation</strong>:</h3>\n<p>Early tax filing means you can spend your time enjoying autumn with family and avoid the season’s usual tax headaches.</p>\n<h3><strong>Improved Accuracy</strong>:</h3>\n<p>With more time to prepare, you’re less likely to make errors on your tax return.</p>\n<h3><strong>Financial Stability</strong>:</h3>\n<p>Early filing gives you a clear picture of your financial standing before the end of the fiscal year.</p>\n<p>So, this summer, Irish healthcare professionals, gather what you need now and file your tax return early to simplify your life. Join the group of sensible professionals who file taxes early and smile knowing that major task is already taken care of.</p>\n<p>Avoid the frustrations that many professionals face each October – searching for documents, cramming taxes into the last days, fearing missed deadlines. Don’t let your practice fall into these common pitfalls.</p>\n<p>Make this autumn smooth sailing by filing early. Reclaim your October and bid farewell to tax time chaos. Spend those autumn weekends relaxing, not rushing receipts to your accountant.</p>\n<p>Early filing doesn’t just reduce stress – it’s also a smart financial move. Collaborate with your accountant to maximize deductions and tax planning when there’s no deadline pressure. Understand your tax liability early and budget accordingly. And if you’re owed a refund, get that money back faster!</p>\n<p>This summer, aim to have your taxes filed by September. Turn tax time into relaxation time. You’ll be grateful come October when others are in a frenzy but your filings are already sorted. Take charge of your tax timeline. Don’t let the endless receipts, invoices, and paperwork pile up. Gather what you need for your accountant now so your taxes are handled early. You work hard all year – avoid extra headaches from leaving taxes to the last moment.</p>\n<p>Learn from the wise early birds of the healthcare world. Savvy professionals don’t wait for the busy autumn tax rush – they act now and file early! Join those reaping the many benefits and avoid another October tax scramble.</p>\n<p>This year, try something new. Prepare your documents in the summer heat. File those taxes early while the weather’s still fine. Then come autumn, while others stress and strain, you can relax with the same peace of mind the early birds enjoy.</p>\n<p><a href=\"/contact/\">Talk to specialist Medical accountants Now</a></p>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t"
+  },
+  {
+   "slug": "new-temporary-business-energy-support-scheme",
+   "title": "New Temporary Business Energy Support Scheme",
+   "seoTitle": "New Temporary Business Energy Support Scheme - MedicalAccountant.ie",
+   "description": "Minister Donohoe announced that a new scheme to help such businesses pay for increasing energy costs will be launched.",
+   "date": "2022-09-28",
+   "modified": "2022-10-07",
+   "image": "/images/wp/Business-Energy-Support-Scheme.jpeg",
+   "imageAlt": "Business Energy Support Scheme",
+   "body": "\n\t\t\t\t\n\t\t\t\t\t<p>Small and medium businesses are the backbone of our domestic economy and they support thousands of jobs.</p>\n<p>Today, Minister Donohoe announced that a new scheme to help such businesses pay for increasing energy costs will be launched. Full details of the new Temporary Business Energy Support Scheme (TBESS) are yet to be published but what we understand from the Minister’s speech is that it will pay for 40 percent of the increase in gas and electricity that <a href=\"https://taxlink.ie/small-business-accountants/\">small and medium businesses</a> are facing.</p>\n<p><strong>The details of the scheme outlined by the Minister today are set out below and once more details are published we will update members via Chartered Accountants Tax News.</strong></p>\n<ul>\n<li>The scheme will be open to businesses that carry on a Case 1 trade, are tax compliant and have experienced a significant increase (more than 50 percent) in their natural gas and electricity costs;</li>\n<li>It will be administered by the Revenue Commissioners and will operate on a self-assessment basis;</li>\n<li>The scheme will operate by comparing the average unit price for the relevant bill period in 2022 with the average unit price in the corresponding reference period in 2021;</li>\n<li>In order to be eligible for the scheme, the average unit price must have increased by more than 50 percent;</li>\n<li>Claims will be able to be made by businesses for up to 40 percent of the amount of the increase in the bill, capped at €10,000 per month per trade;</li>\n<li>An overall cap will apply on the total amount which a business can claim.</li>\n<li>According to the <a href=\"https://enterprise.gov.ie/en/news-and-events/department-news/2022/september/202209271.html\">Department of Enterprise Trade and Employment</a> payments will be backdated to September 2022 and will run until at least February 2023 and will cost €1.25 billion.</li>\n</ul>\n<p>The scheme is being designed to be compliant with the EU State Aid Temporary Crisis Framework and will require approval by the EU Commission in the advance of making payments.</p>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t"
+  },
+  {
+   "slug": "ewss-and-crss-support-extended",
+   "title": "EWSS and CRSS support extended",
+   "seoTitle": "EWSS and CRSS support extended - MedicalAccountant.ie",
+   "description": "New public health restrictions will be imposed on the hospitality sector and indoor events from Tuesday, 07 December to Sunday, 09 January 2022.",
+   "date": "2021-12-21",
+   "modified": "2023-05-25",
+   "image": "/images/wp/New-CRO-Filing-Requirement---PPS-Numbers.jpg",
+   "imageAlt": "EWSS and CRSS support extended",
+   "body": "\n\t\t\t\t\n\t\t\t\t\t<p><strong>Following the announcement by An Taoiseach last Friday that new public health</strong> restrictions will be imposed on the hospitality sector and indoor events from Tuesday, 07 December to Sunday, 09 January 2022, it was expected that a new support scheme would be announced to target those affected businesses.</p>\n<p>Earlier this week, however, it was decided to drop plans for a new scheme and instead extend two existing schemes namely the Employment Wage Subsidy Scheme (EWSS) and the Covid Restriction support Scheme(CRSS).</p>\n<p>The EWSS will remain at its original rates for the next two months while the CRSS will remain in place until the end of January for businesses forced to closed.</p>\n<p>A commercial rates waiver for hospitality, tourism and the live events industries will also be extended until March next year.</p>\n<p>The Pandemic Unemployment Payment (PUP) has been reopened for new applicants who lost their job on or after 7 December as a result of the new restrictions being imposed.</p>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t"
+  },
+  {
+   "slug": "tax-return-ireland-deadline-2021",
+   "title": "Tax return deadline Ireland 2021 - Don't ruin your festive season!",
+   "seoTitle": "Tax return deadline Ireland 2021 - Don't ruin your festive season!",
+   "description": "Tax return deadline Ireland 2021 - An article highlighting some key information around the self-assessment deadline of 17th November 2021.",
+   "date": "2021-10-23",
+   "modified": "2021-10-23",
+   "image": "/images/wp/tax-return-ireland-deadline-2021.jpeg",
+   "imageAlt": "tax return Ireland deadline 2021",
+   "body": "\n\t\t\t\t\n\t\t\t\t\t<p>An article highlighting some key information around the self-assessment deadline of 17th November 2021 ( Tax return deadline ireland 2021 ).</p>\n<p>At this time of year, we are getting ready to enjoy Halloween and Christmas.</p>\n<p>But small self employed individuals and landlords shouldn’t overlook their requirement to <a href=\"/\">file a tax return</a> by 17th Nov 2021.</p>\n<p>It takes some time to get registered with <a href=\"https://www.revenue.ie/en/Home.aspx\">Revenue</a>– in terms of informing them that you need file a tax return (because you’re newly self-employed for example) So it’s really important that you factor in some processing time.</p>\n<p>And remember, contrary to popular belief, Revenue will not necessarily send you a tax return to complete- it is your responsibility to register for Self-Assessment if necessary.</p>\n<p>Late Filing Penalties There will be late filing penalties if tax returns are not made in time. If you file your Income-tax return late, a surcharge may be added on to your tax due, as follows:</p>\n<p>• If you miss the deadline of 31/10/2021 (or 17/11/2021 for ROS customers) and you file your tax return before 31st December 2021, there is an extra penalty of 5% of the tax due (maximum of €12,695)</p>\n<p>• If you file your 2020 tax return after 31st December 2021, there is an extra penalty of 10% of the tax due (maximum of €63,485), What is taxable?</p>\n<p>The good news is that only profits from renting out property or business are liable for income tax.</p>\n<p>To calculate your profit you will need to calculate your total income in any tax year and deduct any ‘allowable expenses’. The remaining sum will be subject to income tax, but remember that the rate of tax you pay will depend on your total taxable income.</p>\n<p><strong>Here to Help Revenue online filing system for tax returns calculates your tax liability for you.</strong></p>\n<p>But needless to say, it will not check whether your figures are accurate or that you have claimed your full entitlement to expenses, reliefs and allowances.</p>\n<p>But we would be happy to take care of all your tax affairs for you; from <a href=\"/company-formation/\">registration</a> with Revenue, to completion of the return, to calculation of your tax liability and the due dates. So don’t ruin you festive season by filing your tax return late and facing a late filing penalty.</p>\n<p><em>This article is intended to inform rather than advise and is based on legislation and practice at the time. Taxpayer’s circumstances do vary and if you feel that the information provided is beneficial it is important that you contact us before implementation.</em></p>\n<p><strong>Also Read</strong>:<a href=\"/budget-report-2022/\">Budget Report 2022</a></p>\n<p>Are you looking for <a href=\"/\">Specialist Medical Accountants?</a> – <a href=\"/contact/\">Get in touch with us Now</a>.</p>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t"
+  },
+  {
+   "slug": "budget-report-2022",
+   "title": "Budget Report 2022",
+   "seoTitle": "Budget Report 2022 - MedicalAccountant.ie",
+   "description": "Minister for Finance, Paschal Donohoe, and Minister for Public Expenditure, Michael McGrath delivered the 2022 Budget today, Tuesday 12 October 2021.",
+   "date": "2021-10-13",
+   "modified": "2021-10-13",
+   "image": "/images/wp/irish-budget-2022.jpeg",
+   "imageAlt": "irish budget 2022",
+   "body": "\n\t\t\t\t\n\t\t\t\t\t<p><strong><em>Minister for Finance, Paschal Donohoe, and Minister for Public Expenditure, Michael McGrath delivered the 2022 Budget today, Tuesday 12 October 2021.</em></strong></p>\n<p>Budget 2022 has set Ireland on a path to sustainable recovery and growth as Irish businesses seek to restart and recover.</p>\n<p>Tax cuts were a little higher than signalled meaning all workers &amp; the self-employed will have more money in their pockets next year. Businesses will be very glad to see the extension of the Employment Wage Subsidy Scheme (EWSS).</p>\n<h3><strong>Take a look at how Budget 2022 affects you:</strong></h3>\n<ul>\n<li>Personal Tax Credit increased by €50 to €1,700</li>\n<li>Employee Tax Credit/Earned Income Tax Credit also increased by €50 to €1,700</li>\n<li>Amount you can earn before suffering income tax at 40% increased by €1,500 to €36,800</li>\n<li>Employment Wage Subsidy Scheme to be extended beyond December 2021 to 30 April 2022 albeit at reduced rates</li>\n<li>VAT rate on hospitality and tourism sector to remain at 9% until 31 August 2022</li>\n<li>Commercial rates holiday to be extended to end of 2021 with amended conditions meaning not all businesses will qualify</li>\n<li>Amendment of Debt Warehousing Scheme which will benefit company directors</li>\n<li>Working from Home – improved tax relief for utilities and broadband costs incurred by employees working from home</li>\n</ul>\n<h3><strong>Tax Credits and Rate Bands</strong></h3>\n<p>The Personal Tax Credit will be increased for everybody by €50 to €1,700 from 01 January 2022.</p>\n<p>The Earned Income Tax Credit and Employee Tax Credit are also being increased by €50 to €1,700 for 2022</p>\n<p>In addition to this there will be a €1,500 increase in the amount you can earn at 20% before moving to the higher rate of 40%.</p>\n<p>For 2022 the new 20% cut off point will be €36,800.</p>\n<h3><strong>EMPLOYMENT WAGE SUBSIDY SCHEME (EWSS) </strong></h3>\n<p>The Employment Wage Subsidy Scheme (EWSS), which was due to expire on 31 December 2021 has been extended for a further 4 months to 30 April 2022 although the rates will be reduced incrementally.</p>\n<p><strong>The updated details are as follows:</strong></p>\n<ul>\n<li>current arrangements for EWSS remain in place until 30 November 2021;</li>\n<li>for the three months December 2021 to February 2022 there will be two subsidy rates namely €151.50 and €203 per employee per week;</li>\n<li>for the two months March 2022 and April 2022, a single flat rate of €100 per week will apply;</li>\n<li>the existing reduced rate of Employers’ PRSI (0.5%) will continue to apply until the end of February 2022. The full Employers’ PRSI contribution will be reintroduced from 1 March 2022 until the scheme ends;</li>\n<li>scheme to conclude on 30 April 2022.</li>\n</ul>\n<p>Eligibility for the scheme will continue to be a 30% reduction in turnover/customer orders in the full year 2021 as compared to the full year 2019.</p>\n<p>The scheme will close to new employer entrants with effect from 1 January 2022<strong> </strong></p>\n<h3><strong>VAT REDUCTION FOR TOURISM/ HOSPITALITY SECTOR </strong></h3>\n<p>The reduced 9% rate of VAT applying to the hospitality and tourism sector, which was due to expire on 31 December 2021, has been extended up to 31 August 2022.</p>\n<h3><strong>START-UP RELIEF </strong></h3>\n<p>Since 2008 there has been a relief from corporation tax for start-up companies in their first three years of trading.</p>\n<p>The relief is granted by reducing the corporation tax payable on the profits of the new trade and gains on the disposal of any assets used for the purposes of the new trade. The amount of relief available is directly linked to the amount of Employers’ PRSI paid.</p>\n<p>The relief will be extended for a period of five years until 31 December 2026.</p>\n<p>The relief will also be amended such that start-up companies will be able to avail of the relief for up to five years, in place of the current three years.</p>\n<p><a href=\"https://taxlink.ie/wp-content/uploads/2021/10/tax-rates-2022.pdf\"><strong>Please click here for more info on tax and Bands</strong></a></p>\n<p><strong>Date Published 12 Oct 2021</strong></p>\n<p>This article is intended to inform rather than advise and is based on legislation and practice at the time. Taxpayer’s circumstances do vary and if you feel that the information provided is beneficial it is important that you contact us before implementation.</p>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t"
+  }
+ ],
+ "team": [
+  {
+   "img": "/images/wp/ross-taxlink-1.jpg",
+   "name": "Ross Lynam - CFA",
+   "role": "Taxation & Wealth Management Director"
+  },
+  {
+   "img": "/images/wp/sumit.jpg",
+   "name": "Sumit Solanki - ACCA",
+   "role": "Director"
+  },
+  {
+   "img": "/images/wp/Noreen-Byrne.png",
+   "name": "Noreen Byrne",
+   "role": "Financial Controller"
+  },
+  {
+   "img": "/images/wp/bernie.png",
+   "name": "Bernie Drennan - ACCA",
+   "role": "Senior Accountant"
+  },
+  {
+   "img": "/images/wp/yash.jpg",
+   "name": "Yash Kalasannavar",
+   "role": "Life Assurance & Pensions"
+  },
+  {
+   "img": "/images/wp/mda.png",
+   "name": "Deirdre O'Reilly",
+   "role": "ACA Accountant"
+  },
+  {
+   "img": "/images/wp/Yuliya.jpg",
+   "name": "Yuliya",
+   "role": "Bookkeeping & Payroll Team"
+  },
+  {
+   "img": "/images/wp/sri-katta-1.jpg",
+   "name": "Sri Katta",
+   "role": "CFA"
+  },
+  {
+   "img": "/images/wp/Yuliya.jpg",
+   "name": "Alya",
+   "role": "Part qualified ACCA"
+  }
+ ],
+ "testimonial": {
+  "intro": "With over two decades of experience, we have tirelessly built a reputation on the reliability, integrity and success of our work. Hundreds of companies and individuals across Dublin and the Ireland trust us for a wide range of accounting services, tax planning services and business advisory. These testimonials reflect the hard work we put in every day to delight our clients and make managing their accounts easier.",
+  "quote": "As a GP, managing my practice’s finances was overwhelming until I started working with MedicalAccountant.ie. Their expertise in the medical field is unmatched. They helped optimise my tax returns and provided invaluable advice on financial planning. Now, I can focus more on patient care knowing that my financial matters are in expert hands. I highly recommend their services to any medical professional looking for dedicated and knowledgeable accountants"
+ }
+}
