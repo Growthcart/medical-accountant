@@ -19,7 +19,7 @@ async function envAdmin(email: string, password: string): Promise<{ id: string; 
   const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
   const adminPassword = process.env.ADMIN_PASSWORD;
   if (!adminEmail || !adminPassword || email !== adminEmail) return null;
-  if (adminPassword.length < 12 || !safeEqual(password, adminPassword)) return 'wrong';
+  if (adminPassword.length < 8 || !safeEqual(password, adminPassword)) return 'wrong';
 
   const DB = dbEnv().DB;
   const hash = await hashPassword(adminPassword);
