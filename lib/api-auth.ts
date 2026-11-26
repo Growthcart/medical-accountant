@@ -13,6 +13,7 @@ function bearerToken(request: NextRequest): string | null {
   return auth?.startsWith('Bearer ') ? auth.slice('Bearer '.length).trim() : null;
 }
 
+
 async function isAdmin(userId: string): Promise<boolean> {
   const { data } = await createServiceClient().from('profiles').select('role').eq('id', userId).maybeSingle();
   return data?.role === 'admin';
