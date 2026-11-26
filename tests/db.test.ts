@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { PGlite } from '@electric-sql/pglite';
+import { DatabaseSync } from 'node:sqlite';
 import { test } from 'node:test';
 import { QueryBuilder } from '../lib/db/builder';
 import { authorize } from '../lib/db/authz';
@@ -8,17 +8,16 @@ import { runQuery, type D1Like } from '../lib/db/exec';
 import { hashPassword, verifyPassword } from '../lib/auth/password';
 import { sanitizePostHtml } from '../lib/blog/sanitizePostHtml';
 
-// Real Postgres (PGlite, in-process) standing in for Supabase, loaded with the real schema.
+// Real SQLite (node:sqlite, in-process) standing in for Cloudflare D1, loaded with the real migration.
 async function freshDb() {
-  const pg = new PGlite();
-  await pg.exec(readFileSync(new URL('../database/supabase-schema.sql', import.meta.url), 'utf8'));
+  const sqlite = new DatabaseSync(':memory:');
+  sqlite.exec(readFileSync(new URL('../migrations/0001_init.sql', import.meta.url), 'utf8'));
   const d1: D1Like = {
     prepare: (sql) => ({
       bind: (...values) => ({
         all: async () => {
-          let n = 0;
-          const res = await pg.query(sql.replace(/\?/g, () => '$' + ++n), values as unknown[]);
-          return { results: res.rows as Record<string, unknown>[] };
+          if (values.length > 100) throw new Error('too many SQL variables (D1 allows 100)');
+          return { results: sqlite.prepare(sql).all(...(values as never[])).map((r) => ({ ...r })) as Record<string, unknown>[] };
         },
       }),
     }),
@@ -94,7 +93,7 @@ test('embedded selects: many-to-one and one-to-many with !inner filter', async (
   assert.deepEqual(joined[0], { tags: { name: 'SEO', slug: 'seo' } });
 });
 
-test('in() uses one bound parameter, so long lists work', async () => {
+test('in() stays under the D1 100-parameter limit for long lists', async () => {
   const { db } = await seed();
   const ids = Array.from({ length: 500 }, (_, i) => `missing-${i}`);
   const { data, error } = await db.from('posts').select('slug').in('id', ids);
@@ -122,7 +121,7 @@ test('errors: duplicate key, single() with no row, json round trip', async () =>
   const { db } = await seed();
   const dup = await db.from('categories').insert({ name: 'News 2', slug: 'news' });
   assert.equal(dup.error?.code, '23505');
-  assert.match(dup.error?.message ?? '', /duplicate/);
+  assert.match(dup.error?.message ?? '', /UNIQUE constraint failed/);
 
   const none = await db.from('posts').select('id').eq('slug', 'nope').single();
   assert.equal(none.error?.code, 'PGRST116');

@@ -1,0 +1,49 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": ".open-next/worker.js",
+	"name": "medical-accountant",
+	"compatibility_date": "2026-11-01",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			// Self-reference, the service name must match "name" above (OpenNext caching).
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "medical-accountant"
+		}
+	],
+	"vars": {
+		"NEXT_PUBLIC_SITE_URL": "https://medicalaccountant.ie"
+	},
+	"d1_databases": [
+		{
+			// The site database. Create it once:  npx wrangler d1 create medical-accountant-db
+			// then paste the printed id here. Schema: migrations/ (npm run db:migrate).
+			"binding": "DB",
+			"database_name": "medical-accountant-db",
+			"database_id": "4a06cbfa-3c91-4411-9680-8798a4780fc7",
+			"migrations_dir": "migrations"
+		},
+		{
+			// Same database again: OpenNext keeps its revalidatePath() tags in a `revalidations` table.
+			"binding": "NEXT_TAG_CACHE_D1",
+			"database_name": "medical-accountant-db",
+			"database_id": "4a06cbfa-3c91-4411-9680-8798a4780fc7"
+		}
+	],
+	"r2_buckets": [
+		{
+			// Uploaded images and form files (served by /files/*).  npx wrangler r2 bucket create medical-accountant-uploads
+			"binding": "BUCKET",
+			"bucket_name": "medical-accountant-uploads"
+		},
+		{
+			// OpenNext incremental cache.  npx wrangler r2 bucket create medical-accountant-opennext-cache
+			"binding": "NEXT_INC_CACHE_R2_BUCKET",
+			"bucket_name": "medical-accountant-opennext-cache"
+		}
+	]
+}

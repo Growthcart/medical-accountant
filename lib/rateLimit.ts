@@ -43,12 +43,12 @@ export async function checkRateLimit(
   }
 }
 
-// Client IP: Vercel puts the real client first in x-forwarded-for (cf-connecting-ip is kept for Cloudflare-fronted setups).
+// Client IP: Cloudflare sets cf-connecting-ip to the real visitor and clients cannot override it
+// (x-forwarded-for can carry a client-supplied first entry, so it is only a fallback for local runs).
 export function getClientIp(headers: Headers): string {
   return (
-    headers.get('x-vercel-forwarded-for')?.split(',')[0]?.trim() ||
-    headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
     headers.get('cf-connecting-ip') ||
+    headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
     headers.get('x-real-ip') ||
     'unknown'
   )

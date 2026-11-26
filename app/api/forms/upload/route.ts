@@ -115,8 +115,7 @@ export async function POST(request: NextRequest) {
     const randomStr = Array.from(randomBytes).map(b => b.toString(16).padStart(2, '0')).join('');
     const filename = `${formId}/${Date.now()}-${randomStr}${ext}`;
 
-    // Store in Supabase Storage
-
+    // Store in R2
     const { error: uploadError } = await db.storage
       .from('form-uploads')
       .upload(filename, buffer, {

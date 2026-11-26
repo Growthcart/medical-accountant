@@ -12,9 +12,9 @@ export const dynamic = 'force-dynamic';
 const bodySchema = z.object({ email: z.string().email(), password: z.string().min(1) });
 
 // Same message for unknown email and wrong password.
-// ADMIN_EMAIL / ADMIN_PASSWORD (Vercel environment variables) define the admin login. The matching database
+// ADMIN_EMAIL / ADMIN_PASSWORD (Worker secrets) define the admin login. The matching database
 // user is created on first sign-in and its password is re-synced on every sign-in, so changing the variable
-// in Vercel (and redeploying) changes the password, and the old one stops working at once.
+// (and redeploying) changes the password, and the old one stops working at once.
 async function envAdmin(email: string, password: string): Promise<{ id: string; email: string } | 'wrong' | null> {
   const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
   const adminPassword = process.env.ADMIN_PASSWORD;

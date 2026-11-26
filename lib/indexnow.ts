@@ -4,7 +4,7 @@
 //
 // Setup:
 //   1. Generate a 32-character hex key (e.g. `openssl rand -hex 16`).
-//   2. Set INDEXNOW_KEY in env (Vercel environment variable + .env.local).
+//   2. Set INDEXNOW_KEY in env (Worker secret + .dev.vars).
 //   3. The key is served at /indexnow-key.txt for ownership verification.
 //   4. notifyIndexNow() is called from /api/revalidate on each post update.
 

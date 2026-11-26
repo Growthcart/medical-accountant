@@ -6,9 +6,6 @@
 .office-card { background: #f8f9fa; border-radius: 1rem; padding: 1.75rem; }
 /* Full-bleed to the card's top and sides (the card pads by 2rem). */
 .service-card__photo { display: block; width: calc(100% + 4rem); max-width: none; margin: -2rem -2rem 1.5rem; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 1rem 1rem 0 0; }
-.btn-gold.hero-cta { background: #fff; color: #0b0f19; border-color: #fff; box-shadow: none; }
-.btn-gold.hero-cta:hover { background: #e6f7f8; }
-.navbar__cta { text-transform: uppercase; }
 
 .consent { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding: 1rem 1.5rem; background: #fff; color: #0a1f44; border-top: 1px solid rgb(10 31 68 / 0.12); box-shadow: 0 -10px 30px -12px rgb(10 31 68 / 0.25); }
 .consent p { flex: 1 1 28rem; margin: 0; font-size: 0.9rem; line-height: 1.5; }
@@ -31,21 +28,78 @@ button.footer__link { background: none; border: 0; padding: 0; font: inherit; cu
 
 /* Header polish */
 .navbar { transition: box-shadow .2s ease; }
-.navbar__inner { transition: height .2s ease; }
-.navbar--scrolled .navbar__inner { height: 76px; }
-.navbar--scrolled .navbar__inner img { height: 48px; }
-.navbar__nav { gap: 0.5rem; }
-.nav-link, .nav-trigger { position: relative; padding: 0.5rem 0.875rem; font-weight: 600; }
-.nav-link::after, .nav-trigger::after { content: ''; position: absolute; left: 0.875rem; right: 0.875rem; bottom: 0.1rem; height: 2px; border-radius: 2px; background: #0db1ba; transform: scaleX(0); transform-origin: left; transition: transform .2s ease; }
-.nav-link:hover::after, .nav-trigger:hover::after, .nav-link[aria-current='page']::after { transform: scaleX(1); }
+/* Header looks the same at every scroll position. */
+.navbar.navbar--scrolled { box-shadow: 0 1px 2px 0 #0000000d; }
 .nav-link[aria-current='page'] { color: #0b6168; }
 .dropdown-menu { border-radius: 0.875rem; padding: 0.5rem; min-width: 14rem; }
 .dropdown-item { padding: 0.625rem 1rem; }
 .dropdown-item:hover .dropdown-item__title { color: #0b6168; }
-.navbar__phone { align-items: center; gap: 0.75rem; margin-right: 1.25rem; padding-left: 1.25rem; border-left: 1px solid rgb(10 31 68 / 0.12); color: #0a1f44; white-space: nowrap; }
-.navbar__phone-icon { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: rgb(13 177 186 / 0.12); color: #0b6168; transition: background .2s ease, color .2s ease; }
-.navbar__phone:hover .navbar__phone-icon { background: #0db1ba; color: #fff; }
-.navbar__phone-text { display: flex; flex-direction: column; line-height: 1.2; }
-.navbar__phone-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: rgb(10 31 68 / 0.6); }
-.navbar__phone-number { font-size: 1.0625rem; font-weight: 700; }
-.navbar__cta { border-radius: 0.625rem; letter-spacing: 0.06em; font-size: 0.875rem; }
+
+/* Hero. On mobile the photo is full-bleed behind a teal wash (layout.css). From 1024px up it is a cropped picture on the right that fades
+   into the section's own teal; the cards sit inside that picture box. Selectors are doubled-up so they beat layout.css whichever stylesheet loads last. */
+.hero-banner__photo { display: contents; }
+@media (min-width: 1024px) {
+  section.hero-banner { background-color: #0db1ba; }
+  section.hero-banner .hero-banner__overlay { display: none; }
+  /* Compact banner + narrower paragraphs: a shorter banner means a smaller photo, which keeps the faces to the right of the text. */
+  section.hero-banner .hero-banner__content { padding-top: 64px; padding-bottom: 64px; }
+  section.hero-banner .hero-banner__subtitle { max-width: min(34rem, 46vw); font-size: 1.125rem; }
+  /* Fixed crop: the box shows the photo from --hero-x0 (set per banner) to its right edge, anchored bottom-right. Its height is --hero-h
+     (default: the whole banner); the left edge dissolves into the section's teal. */
+  section.hero-banner .hero-banner__photo { display: block; position: absolute; top: auto; bottom: 0; right: 0; height: var(--hero-h, 100%); max-width: 80%; z-index: -2; aspect-ratio: calc((1400 - var(--hero-x0, 700)) / var(--hero-c, 550)); }
+  section.hero-banner .hero-banner__photo .hero-banner__bg { inset: 0; width: 100%; height: 100%; z-index: auto; object-fit: cover; object-position: right bottom;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, transparent 8%, #000 14%);
+    mask-image: linear-gradient(90deg, transparent 0, transparent 8%, #000 14%); }
+}
+/* Small laptops: no room for the text and the whole photo, so show only the right-hand people. */
+@media (min-width: 1024px) and (max-width: 1249px) {
+  section.hero-banner .hero-banner__photo { aspect-ratio: calc((1400 - var(--hero-x0-sm, 1000)) / var(--hero-c, 550)); height: calc(100% * var(--hero-c, 550) / 550); }
+  section.hero-banner .hero-banner__photo .hero-banner__bg { -webkit-mask-image: linear-gradient(90deg, transparent 0, transparent 5%, #000 var(--hero-fade-sm, 14%)); mask-image: linear-gradient(90deg, transparent 0, transparent 5%, #000 var(--hero-fade-sm, 14%)); }
+}
+
+/* Wide desktops, home banner: the picture is anchored on the man (just right of the text) and sized to fit as many people as the screen allows,
+   so on a ~1270px screen the man, doctor and nurse fill the space and the woman on the far right is cropped off.
+   --u is the picture's scale in px per source unit; the man's face starts at 50vw - 32px (right after the centred text column), or further right on very wide screens so the nurse ends at the screen edge and the woman stays off-screen. */
+@media (min-width: 1250px) {
+  section.hero-banner .hero-banner__photo--left { --u: min(1.09px, calc((50vw + 22px) / 697)); right: auto; max-width: none; aspect-ratio: auto;
+    left: calc(max(50vw - 32px, 100vw - 5px - 697 * var(--u)) - (518 - var(--hero-x0)) * var(--u)); width: calc((1400 - var(--hero-x0)) * var(--u)); height: calc(var(--hero-c) * var(--u)); }
+}
+
+/* Tablet: full-bleed behind the teal wash; keep the people (bottom of the picture) in view. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  section.hero-banner .hero-banner__bg { object-position: right bottom; }
+}
+
+/* Just wide enough for the full layout: the text column shrinks so it ends before the doctor. */
+@media (min-width: 1250px) and (max-width: 1400px) {
+  section.hero-banner .hero-banner__subtitle { max-width: min(34rem, calc(100vw - 730px)); }
+}
+
+/* Hero floating cards: contents (the card shells are in layout.css) */
+.float-card p { margin: 0; }
+.fc-row { display: flex; align-items: center; justify-content: space-between; }
+.fc-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(10 31 68 / 0.6); }
+.fc-label--sm { font-size: 0.625rem; color: rgb(10 31 68 / 0.55); }
+.fc-chip { border-radius: 9999px; background: rgb(13 177 186 / 0.15); padding: 0.125rem 0.5rem; font-size: 0.625rem; font-weight: 600; color: #0b6168; }
+.fc-chart { display: block; margin-top: 0.75rem; height: 6rem; width: 100%; }
+.fc-axis { display: flex; justify-content: space-between; margin-top: 0.75rem; font-size: 0.6875rem; color: rgb(10 31 68 / 0.55); }
+.fc-badge { display: flex; align-items: center; gap: 0.75rem; }
+.fc-icon { display: flex; flex: none; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 9999px; background: #0db1ba; color: #0a1f44; }
+.fc-title { font-size: 0.875rem; font-weight: 600; color: #0a1f44; }
+.fc-stat { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 0.25rem; }
+.fc-value { font-size: 1.125rem; font-weight: 600; color: #0a1f44; white-space: nowrap; }
+.fc-up { display: inline-flex; color: #059669; }
+.fc-bar { height: 0.375rem; margin-top: 0.5rem; overflow: hidden; border-radius: 9999px; background: rgb(10 31 68 / 0.1); }
+.fc-bar > div { height: 100%; width: 100%; border-radius: 9999px; background: #0db1ba; }
+/* Cards: positioned from the banner's bottom-right corner, where the people's torsos are (faces are above them), compact so they fit below the chins. */
+.hero-banner > .hero-visual { display: none; }
+@media (min-width: 1024px) {
+  .hero-banner > .hero-visual { display: block; position: absolute; inset: 0; min-height: 0; pointer-events: none; z-index: 1; }
+  .hero-visual .float-card { padding: 0.875rem 1rem; }
+  .hero-visual .float-card--chart { top: auto; left: auto; right: 2%; bottom: 2%; width: 17rem; }
+  .hero-visual .float-card--badge { top: 0.625rem; left: auto; right: 3%; bottom: auto; }
+  .hero-visual .float-card--stat { top: auto; left: auto; right: calc(2% + 17rem + 1.5rem); bottom: 2%; width: 12rem; display: none; }
+}
+@media (min-width: 1250px) { .hero-visual .float-card--stat { display: block; } }
+.fc-chart { height: 2.75rem; }
+.fc-axis { margin-top: 0.375rem; }

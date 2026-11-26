@@ -5,7 +5,7 @@ import { createServerStorage } from '@/lib/storage/r2';
 import { getSessionUser } from '@/lib/auth/session';
 
 // Server-side database client (Server Components, route handlers, middleware).
-// It talks to Postgres (Supabase) directly and is NOT subject to any row-level rules: callers
+// It talks to Cloudflare D1 directly and is NOT subject to any row-level rules: callers
 // are trusted and must check authorisation themselves (lib/api/requireAdmin).
 // Browser code uses lib/db/client.ts, which goes through /api/db instead.
 

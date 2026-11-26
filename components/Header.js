@@ -12,6 +12,24 @@ const DROPDOWN = WHO.filter((w) => w.href !== '/company-formation/');
 export default function Header() {
   return (
     <header className="navbar navbar--idle nav-fade" id="nav-header" data-nav="">
+      <div className="navbar__utility">
+        <div className="navbar__utility-inner">
+          <ul className="navbar__contact" aria-label="Contact details">
+            <li>
+              <a href={`tel:${SITE.tel}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                <span>{SITE.phone}</span>
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${SITE.email}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+                <span>{SITE.email}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div className="navbar__inner">
         <a href="/" aria-label="MedicalAccountant.ie home" className="inline-flex shrink-0 items-center transition-transform hover:scale-[1.02]">
           <img src="/images/logo.png" alt="MedicalAccountant.ie" width="210" height="61" className="h-12 w-auto lg:h-[64px]" />
@@ -33,16 +51,7 @@ export default function Header() {
           <NavLink href="/company-formation/" className="nav-link">Company Formation</NavLink>
           <NavLink href="/ihca/" className="nav-link">IHCA</NavLink>
         </nav>
-        <a href={`tel:${SITE.tel}`} className="navbar__phone hidden lg:inline-flex" aria-label={`Call ${SITE.phone}`}>
-          <span className="navbar__phone-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-          </span>
-          <span className="navbar__phone-text">
-            <span className="navbar__phone-label">Call us today</span>
-            <span className="navbar__phone-number">{SITE.phone}</span>
-          </span>
-        </a>
-        <a href="/contact/" className="navbar__cta hidden lg:inline-flex" aria-label="Get in Touch">Get in Touch</a>
+        <a href="/contact/" className="navbar__cta hidden lg:inline-flex">Talk to Our Team</a>
         <button type="button" aria-label="Toggle menu" aria-expanded="false" className="menu-toggle" data-menu-toggle="">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="h-6 w-6" aria-hidden="true" data-menu-icon="closed"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="h-6 w-6" aria-hidden="true" hidden data-menu-icon="open"><path d="M6 6l12 12M6 18L18 6" /></svg>
@@ -62,7 +71,7 @@ export default function Header() {
           <a href="/company-formation/" className="mobile-link" data-mobile-link="">Company Formation</a>
           <a href="/ihca/" className="mobile-link" data-mobile-link="">IHCA</a>
           <a href={`tel:${SITE.tel}`} className="mobile-link" data-mobile-link="">{SITE.phone}</a>
-          <a href="/contact/" className="navbar__cta mt-3" data-mobile-link="">Get in Touch</a>
+          <a href="/contact/" className="navbar__cta mt-3" data-mobile-link="">Talk to Our Team</a>
         </nav>
       </div>
     </header>

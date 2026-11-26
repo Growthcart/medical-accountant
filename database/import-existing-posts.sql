@@ -1,6 +1,7 @@
 -- Imports the news posts that lived in lib/content.json into the CMS, so they are edited in Admin > Posts.
 -- Generated from that file; safe to run more than once (fixed ids, ON CONFLICT upsert). Same /{slug}/ addresses as before.
---   Local:  Supabase dashboard > SQL Editor > paste this file > Run
+--   Local:   npx wrangler d1 execute DB --local --file database/import-existing-posts.sql
+--   Live:    npx wrangler d1 execute DB --remote --file database/import-existing-posts.sql
 
 
 INSERT INTO posts (id, title, slug, content, excerpt, featured_image_url, featured_image_alt, status, is_featured, published_at, created_at, updated_at, og_title, og_description)

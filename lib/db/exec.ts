@@ -1,9 +1,9 @@
 import type { DbResult, Filter, QueryDesc } from './builder';
 import { TABLES } from './schema';
 
-// Runs a query descriptor against Postgres (Supabase) through lib/db/env.ts, which turns the
-// "?" placeholders into $1, $2... (D1Like is the small prepare/bind/all shape that adapter implements). Table and column names are validated here because descriptors can
-// come from the browser via /api/db; values are always bound parameters.
+// Runs a query descriptor against Cloudflare D1 (SQLite) through the DB binding from lib/db/env.ts
+// (D1Like is the small prepare/bind/all shape of that binding). Table and column names are validated here because descriptors can
+// come from the browser via /api/db; values are bound parameters (D1 allows 100 per statement).
 
 export interface D1Like {
   prepare(sql: string): {
@@ -85,6 +85,22 @@ function parseSelect(select: string | undefined): { cols: string[]; embeds: Embe
 
 // ---- WHERE ----------------------------------------------------------
 
+// D1 allows 100 bound parameters per statement. Short lists are bound; long ones are written as escaped literals
+// (strings and numbers only, ids and slugs), so a list of any length stays one statement.
+// shortcut: a statement is capped at 100 KB on D1, so a list of several thousand ids would need splitting into batches.
+const MAX_BOUND_LIST = 50;
+function inList(list: unknown[], params: unknown[]): string {
+  if (list.length <= MAX_BOUND_LIST) {
+    params.push(...list);
+    return `(${list.map(() => '?').join(', ')})`;
+  }
+  return `(${list.map((v) => {
+    if (typeof v === 'number' && Number.isFinite(v)) return String(v);
+    if (typeof v === 'string') return `'${v.replace(/'/g, "''")}'`;
+    throw new Error('Long IN lists accept only strings and numbers');
+  }).join(', ')})`;
+}
+
 function cond(col: string, f: Filter, params: unknown[], table: string): string {
   const bind = (v: unknown) => { params.push(toDb(table, col, v)); return '?'; };
   const c = ident(col);
@@ -97,13 +113,12 @@ function cond(col: string, f: Filter, params: unknown[], table: string): string 
     case 'lt': sql = `${c} < ${bind(f.val)}`; break;
     case 'lte': sql = `${c} <= ${bind(f.val)}`; break;
     case 'like': sql = `${c} LIKE ${bind(f.val)}`; break;
-    case 'ilike': sql = `${c} ILIKE ${bind(f.val)}`; break;
+    // SQLite LIKE is already case-insensitive for ASCII, which is what ilike meant on Postgres.
+    case 'ilike': sql = `${c} LIKE ${bind(f.val)}`; break;
     case 'is': sql = f.val === null ? `${c} IS NULL` : `${c} = ${bind(f.val)}`; break;
-    // One array parameter keeps this a single bound value however long the list is.
     case 'in': {
       const list = Array.isArray(f.val) ? f.val : [];
-      params.push(list.map((v) => toDb(table, col, v)));
-      sql = `${c} = ANY(?)`;
+      sql = `${c} IN ${inList(list.map((v) => toDb(table, col, v)), params)}`;
       break;
     }
     default: throw new Error(`Unsupported operator: ${f.op}`);
@@ -140,13 +155,22 @@ function where(desc: QueryDesc, embeds: Embed[], params: unknown[]): string {
 function errorFor(e: unknown): DbResult {
   const message = e instanceof Error ? e.message : String(e);
   const code = (e as { code?: string })?.code;
-  // Postgres SQLSTATE codes (23505 unique, 23503 foreign key, 42703 unknown column) pass straight through.
-  return { data: null, error: code ? { message, code } : { message } };
+  // Callers test Postgres SQLSTATE codes, so SQLite constraint failures are reported with the same ones.
+  const mapped = /UNIQUE constraint failed|PRIMARY KEY constraint/i.test(message) ? '23505'
+    : /FOREIGN KEY constraint failed/i.test(message) ? '23503'
+    : /no such column/i.test(message) ? '42703'
+    : code;
+  return { data: null, error: mapped ? { message, code: mapped } : { message } };
 }
 
 async function all(db: D1Like, sql: string, params: unknown[]): Promise<Row[]> {
   const res = await db.prepare(sql).bind(...params).all();
   return (res.results ?? []) as Row[];
+}
+
+function inClause(prefix: string, ids: unknown[]): [string, unknown[]] {
+  const params: unknown[] = [];
+  return [`${prefix} ${inList(ids, params)}`, params];
 }
 
 function project(rows: Row[], cols: string[]): Row[] {
@@ -165,7 +189,7 @@ async function attachEmbeds(db: D1Like, table: string, rows: Row[], embeds: Embe
     if (rel.many) {
       const ids = rows.map((r) => r[meta.pk[0]]).filter((v) => v != null);
       const kids = ids.length
-        ? await all(db, `SELECT * FROM ${ident(rel.table)} WHERE ${ident(rel.fk)} = ANY(?)`, [ids])
+        ? await all(db, ...inClause(`SELECT * FROM ${ident(rel.table)} WHERE ${ident(rel.fk)} IN`, ids))
         : [];
       for (const r of rows) {
         r[e.name] = project(kids.filter((k) => k[rel.fk] === r[meta.pk[0]]).map((k) => fromDb(rel.table, { ...k })), cols);
@@ -173,7 +197,7 @@ async function attachEmbeds(db: D1Like, table: string, rows: Row[], embeds: Embe
     } else {
       const ids = [...new Set(rows.map((r) => r[rel.fk]).filter((v) => v != null))];
       const targets = ids.length
-        ? await all(db, `SELECT * FROM ${ident(rel.table)} WHERE ${ident(relMeta.pk[0])} = ANY(?)`, [ids])
+        ? await all(db, ...inClause(`SELECT * FROM ${ident(rel.table)} WHERE ${ident(relMeta.pk[0])} IN`, ids))
         : [];
       const byId = new Map(targets.map((t) => [t[relMeta.pk[0]], t]));
       for (const r of rows) {
@@ -269,8 +293,8 @@ export async function runQuery(db: D1Like, desc: QueryDesc): Promise<DbResult> {
       : updates.length
         ? ` ON CONFLICT (${target}) DO UPDATE SET ${updates.map((c) => `${ident(c)} = excluded.${ident(c)}`).join(', ')}`
         : ` ON CONFLICT (${target}) DO NOTHING`;
-    // Postgres allows 65535 bound parameters per statement; split very large inserts well below that.
-    const perStatement = Math.max(1, Math.floor(10000 / allCols.length));
+    // D1 allows 100 bound parameters per statement; split larger inserts below that.
+    const perStatement = Math.max(1, Math.floor(90 / allCols.length));
     const out: Row[] = [];
     for (let i = 0; i < list.length; i += perStatement) {
       const params: unknown[] = [];

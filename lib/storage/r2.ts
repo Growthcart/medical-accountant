@@ -1,7 +1,7 @@
 import { dbEnv } from '@/lib/db/env';
 import { publicUrlFor } from './public-url';
 
-// Storage on Supabase Storage behind a small bucket API: from(bucket).upload / remove /
+// Storage on Cloudflare R2 behind a small bucket API: from(bucket).upload / remove /
 // list / getPublicUrl. Objects are keyed
 // "<bucket>/<path>"; see public-url.ts for how they are served.
 

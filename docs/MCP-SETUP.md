@@ -33,7 +33,7 @@ the Claude.ai connector.
    the three `mcp_oauth_*` tables that hold OAuth clients, codes and tokens (hashed, server-only).
 3. Check `NEXT_PUBLIC_SITE_URL=https://medicalaccountant.ie` is set for the build and as a Worker variable
    (see the README). For Claude Code you also need `POSTS_API_KEY` (any long random string:
-   `openssl rand -hex 32`, set as the `POSTS_API_KEY` environment variable in Vercel).
+   `openssl rand -hex 32`, set as the `POSTS_API_KEY` secret: `npx wrangler secret put POSTS_API_KEY`).
 4. Quick check in a browser: both `.well-known` URLs above return JSON, and
    `https://medicalaccountant.ie/api/mcp` returns a JSON "use POST" error.
 
@@ -61,7 +61,7 @@ Drafts appear in the admin under **Posts**; publish them there or ask Claude to 
 
 ### Featured images
 
-The site only displays images stored on the site itself (Supabase Storage, served from `/files/...` or your
+The site only displays images stored on the site itself (R2 storage, served from `/files/...` or your
 public file domain) or Unsplash (see the Content-Security-Policy in `next.config.mjs`). So:
 
 - Give `create_post` or `update_post` a `featured_image_source_url` and the image is downloaded,
@@ -84,9 +84,9 @@ public file domain) or Unsplash (see the Content-Security-Policy in `next.config
 - **Security:** tokens are stored only as hashes; the endpoint enforces PKCE (S256) and an exact
   redirect-URI match; registration and revocation are rate-limited. To cut access, remove the
   connector in Claude.ai, or delete the rows in `mcp_oauth_tokens`. To clear expired codes and
-  tokens, run it in the Supabase SQL Editor:
-  `DELETE FROM mcp_oauth_auth_codes WHERE expires_at < to_char(now() - interval '1 day', 'YYYY-MM-DD"T"HH24:MI:SS"Z"');`
-  `DELETE FROM mcp_oauth_tokens WHERE revoked = 1 OR access_expires_at < to_char(now() - interval '7 days', 'YYYY-MM-DD"T"HH24:MI:SS"Z"');`
+  tokens, run these with `npx wrangler d1 execute DB --remote --command "..."`:
+  `DELETE FROM mcp_oauth_auth_codes WHERE expires_at < strftime('%Y-%m-%dT%H:%M:%SZ', 'now', '-1 day');`
+  `DELETE FROM mcp_oauth_tokens WHERE revoked = 1 OR access_expires_at < strftime('%Y-%m-%dT%H:%M:%SZ', 'now', '-7 days');`
 
 ## If adding the connector fails
 

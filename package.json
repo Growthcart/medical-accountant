@@ -5,14 +5,20 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv --include-runtime=false cloudflare-env.d.ts",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
+    "db:migrate": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
     "db:create-admin": "node scripts/create-admin.mjs",
     "test": "tsx --test tests/*.test.ts"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.119.0",
+    "@opennextjs/cloudflare": "^1.20.16",
     "@tiptap/extension-image": "^3.13.0",
     "@tiptap/extension-link": "^3.13.0",
     "@tiptap/extension-placeholder": "^3.13.0",
@@ -26,7 +32,6 @@
     "lucide-react": "^0.562.0",
     "marked": "^16.4.2",
     "next": "^16.4.5",
-    "pg": "^8.23.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "tailwind-merge": "^3.4.0",
@@ -35,7 +40,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@electric-sql/pglite": "^0.5.15",
+    "@supabase/supabase-js": "^2.119.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^24.19.2",
     "@types/pg": "^8.23.1",
@@ -44,9 +49,11 @@
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.4.2",
     "next": "^16.4.2",
+    "pg": "^8.23.1",
     "postcss": "8.4.33",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "wrangler": "^4.160.0"
   }
 }

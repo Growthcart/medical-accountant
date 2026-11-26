@@ -66,3 +66,6 @@ desktop.ini
 .idea/
 *.swp
 *~
+
+# One-off Supabase -> D1/R2 migration output (contains production data)
+/.migration/

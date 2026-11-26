@@ -1,0 +1,26 @@
+# Local secrets for `npm run dev` / `npm run preview`. Copy to .dev.vars.
+# In production set each with:  npx wrangler secret put NAME
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# Admin login for /admin (created on first sign-in; password: 8+ characters, longer is better)
+ADMIN_EMAIL=you@medicalaccountant.ie
+ADMIN_PASSWORD=a-long-password-here
+# Optional: where admin notification emails go
+# ADMIN_NOTIFICATION_EMAIL=
+
+# Programmatic publishing (POST /api/posts/*, the local MCP server, /api/revalidate):  openssl rand -hex 32
+POSTS_API_KEY=your_secure_api_key_here
+REVALIDATION_SECRET=your_secret_here
+
+# Resend (form notification emails)
+RESEND_API_KEY=your_resend_api_key
+RESEND_FROM_EMAIL=noreply@yourdomain.com
+
+# IndexNow key, 32 hex chars:  openssl rand -hex 16
+INDEXNOW_KEY=your_32_char_hex_key_here
+
+# Enquiry form (/api/enquiry) forwards JSON to this URL (email service, CRM, Zapier...). 503 until set.
+# ENQUIRY_WEBHOOK_URL=
+
+# Optional: serve uploads from the R2 bucket's own public domain instead of /files/*  (build-time: also set it in deploy.yml)
+# NEXT_PUBLIC_R2_PUBLIC_URL=

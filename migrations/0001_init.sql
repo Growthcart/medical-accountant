@@ -1,26 +1,20 @@
--- ============================================================
--- Supabase (Postgres) schema for the site's database.
--- Run once: Supabase dashboard > SQL Editor > paste this file > Run.
--- It is safe to run again (everything is IF NOT EXISTS / ON CONFLICT).
--- Timestamps are ISO-8601 UTC strings (TEXT), flags are 0/1 integers and JSON is TEXT;
--- the app layer (lib/db) converts these back to JS types, exactly as it did on D1.
--- Row Level Security is switched on for every table with NO policies: Supabase's public
--- REST API (anon key) can read nothing. The app connects with DATABASE_URL, which bypasses RLS.
--- ============================================================
+-- Cloudflare D1 (SQLite) schema for the site. Apply with:  npm run db:migrate   (local)  /  npm run db:migrate:remote
+-- Converted from the former Supabase Postgres schema: ids are TEXT uuids, timestamps are ISO-8601 TEXT, booleans are 0/1.
+-- Safe to run again (everything is IF NOT EXISTS / ON CONFLICT).
 
 -- Auth ---------------------------------------------------------
 CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY,
   email TEXT NOT NULL UNIQUE,
   password_hash TEXT NOT NULL,
-  created_at TEXT NOT NULL DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 
 CREATE TABLE IF NOT EXISTS sessions (
   token_hash TEXT PRIMARY KEY,
   user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   expires_at TEXT NOT NULL,
-  created_at TEXT NOT NULL DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions (user_id);
 CREATE INDEX IF NOT EXISTS idx_sessions_expires ON sessions (expires_at);
@@ -43,8 +37,8 @@ CREATE TABLE IF NOT EXISTS profiles (
   linkedin_url TEXT,
   twitter_handle TEXT,
   website_url TEXT,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 
 CREATE TABLE IF NOT EXISTS categories (
@@ -52,14 +46,14 @@ CREATE TABLE IF NOT EXISTS categories (
   name TEXT NOT NULL UNIQUE,
   slug TEXT NOT NULL UNIQUE,
   description TEXT,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 
 CREATE TABLE IF NOT EXISTS tags (
   id TEXT PRIMARY KEY,
   name TEXT NOT NULL UNIQUE,
   slug TEXT NOT NULL UNIQUE,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 
 CREATE TABLE IF NOT EXISTS posts (
@@ -76,8 +70,8 @@ CREATE TABLE IF NOT EXISTS posts (
   status TEXT DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
   is_featured INTEGER DEFAULT 0,
   published_at TEXT,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
   og_title TEXT,
   og_description TEXT,
   og_image TEXT,
@@ -126,8 +120,8 @@ CREATE TABLE IF NOT EXISTS site_settings (
   footer_banner_bg_color TEXT DEFAULT '#1e1b4b',
   -- 'category' -> /posts/{category}/{post}, 'flat' -> /posts/{post}
   post_url_structure TEXT NOT NULL DEFAULT 'category' CHECK (post_url_structure IN ('category', 'flat')),
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 INSERT INTO site_settings (id) VALUES ('00000000-0000-0000-0000-000000000001') ON CONFLICT (id) DO NOTHING;
 
@@ -151,8 +145,8 @@ CREATE TABLE IF NOT EXISTS business_info (
   social_youtube TEXT,
   social_tiktok TEXT,
   social_github TEXT,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 
 CREATE TABLE IF NOT EXISTS header_menus (
@@ -161,8 +155,8 @@ CREATE TABLE IF NOT EXISTS header_menus (
   menu_link TEXT NOT NULL,
   display_order INTEGER NOT NULL DEFAULT 0,
   is_active INTEGER DEFAULT 1,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 CREATE INDEX IF NOT EXISTS idx_header_menus_active_order ON header_menus (is_active, display_order);
 
@@ -177,8 +171,8 @@ CREATE TABLE IF NOT EXISTS url_redirects (
   hit_count INTEGER DEFAULT 0,
   last_hit_at TEXT,
   created_by TEXT REFERENCES profiles(id) ON DELETE SET NULL,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 CREATE INDEX IF NOT EXISTS idx_url_redirects_from_path ON url_redirects (from_path);
 
@@ -194,8 +188,8 @@ CREATE TABLE IF NOT EXISTS cookie_consents (
   ip_address TEXT,
   country TEXT,
   user_agent TEXT,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 
 -- Forms --------------------------------------------------------
@@ -214,8 +208,8 @@ CREATE TABLE IF NOT EXISTS contact_forms (
   user_email_field TEXT,
   user_email_subject TEXT,
   user_email_template TEXT,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 
 CREATE TABLE IF NOT EXISTS form_submissions (
@@ -225,7 +219,7 @@ CREATE TABLE IF NOT EXISTS form_submissions (
   ip_address TEXT,
   user_agent TEXT,
   is_read INTEGER DEFAULT 0,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 CREATE INDEX IF NOT EXISTS idx_form_submissions_form_id ON form_submissions (form_id, created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_form_submissions_is_read ON form_submissions (form_id, is_read);
@@ -233,7 +227,7 @@ CREATE INDEX IF NOT EXISTS idx_form_submissions_is_read ON form_submissions (for
 -- Reviews ------------------------------------------------------
 CREATE TABLE IF NOT EXISTS reviews (
   id TEXT PRIMARY KEY,
-  review_date TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD')),
+  review_date TEXT DEFAULT (strftime('%Y-%m-%d', 'now')),
   spoiler TEXT,
   review TEXT NOT NULL,
   reviewer_name TEXT NOT NULL,
@@ -242,8 +236,8 @@ CREATE TABLE IF NOT EXISTS reviews (
   website_url TEXT,
   is_active INTEGER DEFAULT 1,
   display_order INTEGER DEFAULT 0,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 CREATE INDEX IF NOT EXISTS idx_reviews_active_order ON reviews (is_active, display_order);
 
@@ -251,7 +245,7 @@ CREATE TABLE IF NOT EXISTS review_settings (
   id TEXT PRIMARY KEY DEFAULT '00000000-0000-0000-0000-000000000001',
   google_reviews_text TEXT DEFAULT '',
   google_reviews_link TEXT DEFAULT '',
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 INSERT INTO review_settings (id) VALUES ('00000000-0000-0000-0000-000000000001') ON CONFLICT (id) DO NOTHING;
 
@@ -261,8 +255,8 @@ CREATE TABLE IF NOT EXISTS projects (
   name TEXT NOT NULL,
   description TEXT,
   is_active INTEGER DEFAULT 1,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 CREATE INDEX IF NOT EXISTS idx_projects_active ON projects (is_active, created_at DESC);
 
@@ -271,11 +265,11 @@ CREATE TABLE IF NOT EXISTS time_entries (
   project_id TEXT NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
   title TEXT NOT NULL,
   description TEXT,
-  started_at TEXT NOT NULL DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
+  started_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
   ended_at TEXT,
   duration_minutes INTEGER,
-  created_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
-  updated_at TEXT DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  updated_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 CREATE INDEX IF NOT EXISTS idx_time_entries_project_started ON time_entries (project_id, started_at DESC);
 CREATE INDEX IF NOT EXISTS idx_time_entries_started ON time_entries (started_at DESC);
@@ -293,7 +287,7 @@ CREATE TABLE IF NOT EXISTS mcp_oauth_clients (
   token_endpoint_auth_method TEXT NOT NULL DEFAULT 'none',
   scope TEXT,
   metadata TEXT,
-  created_at TEXT NOT NULL DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 
 CREATE TABLE IF NOT EXISTS mcp_oauth_auth_codes (
@@ -306,7 +300,7 @@ CREATE TABLE IF NOT EXISTS mcp_oauth_auth_codes (
   scope TEXT,
   expires_at TEXT NOT NULL,
   consumed INTEGER NOT NULL DEFAULT 0,
-  created_at TEXT NOT NULL DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'))
+  created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 CREATE INDEX IF NOT EXISTS idx_mcp_auth_codes_expires ON mcp_oauth_auth_codes (expires_at);
 
@@ -320,31 +314,10 @@ CREATE TABLE IF NOT EXISTS mcp_oauth_tokens (
   access_expires_at TEXT NOT NULL,
   refresh_expires_at TEXT,
   revoked INTEGER NOT NULL DEFAULT 0,
-  created_at TEXT NOT NULL DEFAULT (to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')),
+  created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
   last_used_at TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_mcp_tokens_user ON mcp_oauth_tokens (user_id) WHERE revoked = 0;
 
--- Lock the public REST API ----------------------------------------
-ALTER TABLE users ENABLE ROW LEVEL SECURITY;
-ALTER TABLE sessions ENABLE ROW LEVEL SECURITY;
-ALTER TABLE rate_limits ENABLE ROW LEVEL SECURITY;
-ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
-ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
-ALTER TABLE tags ENABLE ROW LEVEL SECURITY;
-ALTER TABLE posts ENABLE ROW LEVEL SECURITY;
-ALTER TABLE post_tags ENABLE ROW LEVEL SECURITY;
-ALTER TABLE site_settings ENABLE ROW LEVEL SECURITY;
-ALTER TABLE business_info ENABLE ROW LEVEL SECURITY;
-ALTER TABLE header_menus ENABLE ROW LEVEL SECURITY;
-ALTER TABLE url_redirects ENABLE ROW LEVEL SECURITY;
-ALTER TABLE cookie_consents ENABLE ROW LEVEL SECURITY;
-ALTER TABLE contact_forms ENABLE ROW LEVEL SECURITY;
-ALTER TABLE form_submissions ENABLE ROW LEVEL SECURITY;
-ALTER TABLE reviews ENABLE ROW LEVEL SECURITY;
-ALTER TABLE review_settings ENABLE ROW LEVEL SECURITY;
-ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
-ALTER TABLE time_entries ENABLE ROW LEVEL SECURITY;
-ALTER TABLE mcp_oauth_clients ENABLE ROW LEVEL SECURITY;
-ALTER TABLE mcp_oauth_auth_codes ENABLE ROW LEVEL SECURITY;
-ALTER TABLE mcp_oauth_tokens ENABLE ROW LEVEL SECURITY;
+-- OpenNext (Cloudflare adapter): revalidatePath()/revalidateTag() bookkeeping.
+CREATE TABLE IF NOT EXISTS revalidations (tag TEXT NOT NULL, revalidatedAt INTEGER NOT NULL, stale INTEGER, expire INTEGER DEFAULT NULL, UNIQUE(tag) ON CONFLICT REPLACE);

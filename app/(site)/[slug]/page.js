@@ -7,7 +7,7 @@ import { content, pageMeta } from '@/lib/site';
 // The site's own pages (gp-accountants, ihca, ...) are built ahead of time. Any other /{slug}/ is a news post
 // read from the CMS on request, so a post published in the admin works without a rebuild.
 // Posts come from the database and PostPage calls connection(), which cannot run in a prerendered/ISR route
-// (Vercel: DYNAMIC_SERVER_USAGE), so the whole /{slug}/ route is rendered per request.
+// (DYNAMIC_SERVER_USAGE), so the whole /{slug}/ route is rendered per request.
 export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
 
@@ -30,7 +30,7 @@ export default async function Page({ params }) {
   return (
     <main id="main">
       <JsonLd path={`/${slug}/`} name={page.h1} description={page.description} kind="service" />
-      <Hero hero={slug} title={page.h1} lead={page.lead} />
+      <Hero hero={slug} eyebrow="Accountants for Medical Professionals" title={page.h1} lead={page.lead} />
       <ServiceBody page={page} />
       <Testimonial />
       <Team />

@@ -4,7 +4,7 @@ import { BUCKETS } from '@/lib/storage/r2';
 
 export const dynamic = 'force-dynamic';
 
-// Public file server for Supabase Storage objects: /files/<bucket>/<path>. Not needed if
+// Public file server for R2 objects: /files/<bucket>/<path>. Not needed if
 // the bucket is served from a custom domain (NEXT_PUBLIC_R2_PUBLIC_URL).
 export async function GET(_request: NextRequest, { params }: { params: Promise<{ path: string[] }> }) {
   const [bucket, ...rest] = (await params).path;

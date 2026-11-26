@@ -1,10 +1,12 @@
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
+
 /** @type {import('next').NextConfig} */
 
 // Canonical URLs, sitemaps, feeds and OAuth metadata are all built from
-// NEXT_PUBLIC_SITE_URL; a production build without it would ship
+// NEXT_PUBLIC_SITE_URL (baked in at build time: set it in the CI/Workers Builds environment); a production build without it would ship
 // http://localhost:3000 everywhere.
-if (process.env.VERCEL_ENV === 'production' && !process.env.NEXT_PUBLIC_SITE_URL) {
-  throw new Error('NEXT_PUBLIC_SITE_URL must be set for production builds (e.g. https://medicalaccountant.ie)')
+if (process.env.CI && !process.env.NEXT_PUBLIC_SITE_URL) {
+  throw new Error('NEXT_PUBLIC_SITE_URL must be set for CI/production builds (e.g. https://medicalaccountant.ie)')
 }
 
 // Uploaded files are served from this site (/files/...) unless NEXT_PUBLIC_R2_PUBLIC_URL points at a public CDN/bucket domain.
@@ -54,7 +56,7 @@ const nextConfig = {
     NEXT_PUBLIC_BUILD_DATE: new Date().toISOString(),
   },
   images: {
-    // Files are served as stored (no Vercel image-optimisation quota used).
+    // Files are served as stored (no image-optimisation service is used).
     unoptimized: true,
   },
   compiler: {
@@ -137,5 +139,8 @@ const nextConfig = {
   },
   poweredByHeader: false,
 }
+
+// Gives `next dev` the same D1/R2 bindings (local, in .wrangler/) as the deployed Worker.
+initOpenNextCloudflareForDev()
 
 export default nextConfig

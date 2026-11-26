@@ -13,6 +13,8 @@ export default function Home() {
     <main id="main">
       <JsonLd path="/" name={content.pages.index.seoTitle} description={content.pages.index.description} kind="home" />
       <Hero
+        visual
+        eyebrow="Accountants for Medical Professionals"
         title="Specialist Medical Accountants"
         lead={[
           'Medical Accountants and Tax specialists who can help keep your personal and practice tax bills to a minimum.',

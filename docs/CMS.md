@@ -17,22 +17,33 @@ The news is now run from an admin at `/admin`. The rest of the site (service pag
 
 The site's own pages (home, contact, terms and the seven audience pages) are still listed by hand in `app/sitemap.ts`. Add a line there when you add a page.
 
-## Set up (one time): Supabase + Vercel
+## Set up (one time): Cloudflare Workers
 
-1. **Supabase project.** Create one at supabase.com.
-2. **Tables.** Dashboard > SQL Editor: run `database/supabase-schema.sql`, then `database/import-existing-posts.sql` (the seven existing posts).
-   The schema turns Row Level Security on for every table with no policies, so Supabase's public API can read nothing; the site connects with `DATABASE_URL`.
-3. **Admin login.** Set `ADMIN_EMAIL` and `ADMIN_PASSWORD` (8+ characters, longer is better) in Vercel and redeploy. The first sign-in at `/admin/login` creates the admin account; changing either value later changes the login (after a redeploy). No SQL needed.
-4. **Uploads.** Dashboard > Storage: create a **private** bucket named `uploads` (or set `SUPABASE_STORAGE_BUCKET`). Files are served by the site at `/files/<bucket>/<name>`.
-5. **Vercel.** Import the repository. Under Settings > Environment Variables add everything in `.env.example`:
-   `NEXT_PUBLIC_SITE_URL=https://medicalaccountant.ie`, `DATABASE_URL` (Supabase **Transaction pooler**, port 6543, Settings > Database), `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `POSTS_API_KEY`, `REVALIDATION_SECRET`, `RESEND_*`, `INDEXNOW_KEY`, `ENQUIRY_WEBHOOK_URL`.
-   Never put the service-role key or database password in a `NEXT_PUBLIC_*` variable.
-6. Deploy. Every push to the main branch builds and releases.
+The site runs on one Cloudflare Worker (Next.js through OpenNext), with a **D1** database and **R2** buckets. Everything is declared in `wrangler.jsonc`.
+
+1. **Log in.** `npx wrangler login`.
+2. **Database.** `npx wrangler d1 create medical-accountant-db`, paste the printed `database_id` into **both** `d1_databases` entries in `wrangler.jsonc`, then `npm run db:migrate:remote` (creates the tables from `migrations/`). Optionally `npx wrangler d1 execute DB --remote --file database/import-existing-posts.sql` (the seven original posts).
+3. **Buckets.** `npx wrangler r2 bucket create medical-accountant-uploads` (uploads, served by the site at `/files/<bucket>/<name>`) and `npx wrangler r2 bucket create medical-accountant-opennext-cache` (page cache).
+4. **Secrets.** For each name in `.dev.vars.example` run `npx wrangler secret put NAME`: `ADMIN_EMAIL`, `ADMIN_PASSWORD` (8+ characters, longer is better), `POSTS_API_KEY`, `REVALIDATION_SECRET`, `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `INDEXNOW_KEY`, `ENQUIRY_WEBHOOK_URL`. The first sign-in at `/admin/login` creates the admin account; changing `ADMIN_EMAIL` or `ADMIN_PASSWORD` later changes the login. No SQL needed.
+5. **Deploy.** `npm run deploy` (builds, then uploads the Worker). Add the domain under Workers & Pages > medical-accountant > Settings > Domains & Routes.
+6. **Automatic deploys.** `.github/workflows/deploy.yml` deploys every push to `main`. Add the repository secrets `CLOUDFLARE_API_TOKEN` (permissions: Workers Scripts, D1, R2 edit) and `CLOUDFLARE_ACCOUNT_ID`.
+
+`NEXT_PUBLIC_*` values (site URL, tracking ids) are baked in at build time: `NEXT_PUBLIC_SITE_URL` is set in `wrangler.jsonc` (runtime) and in `deploy.yml` (build); the others, if you change them, go in `deploy.yml` too.
+
+The Worker bundle is about 3.6 MB gzipped, so it needs the **Workers Paid** plan (the free plan's limit is 3 MB).
+
+### Moving data from the old Supabase/Vercel site
+
+Both scripts only read from Supabase (they need the old `DATABASE_URL`, `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in `.env.local`; `DATABASE_URL` must be the **Transaction pooler** string):
+
+1. `node --env-file=.env.local scripts/export-supabase.mjs` writes `.migration/d1-data.sql`; load it with `npx wrangler d1 execute DB --remote --file .migration/d1-data.sql`.
+2. `node --env-file=.env.local scripts/export-storage.mjs --remote` copies the uploaded files into the R2 bucket, keeping the same `/files/...` URLs.
+3. Check the site on its `*.workers.dev` address, then point the domain at the Worker. Once it is live, delete both scripts and the `pg` and `@supabase/supabase-js` dev dependencies.
 
 ## Day to day
 
 - **Write or edit a post:** Admin > Posts. The seven original posts are already there, with their SEO titles, images and dates.
-- **Locally:** copy `.env.example` to `.env.local`, fill in the Supabase values (a separate Supabase project for development is a good idea), then `npm run dev`.
+- **Locally:** copy `.dev.vars.example` to `.dev.vars` and fill it in, run `npm run db:migrate` once (a local D1 in `.wrangler/`), then `npm run dev`. `npm run preview` runs the real Worker build locally.
 - **A post's address** is its slug, directly under the site root. Slugs the site already uses (`news`, `contact`, `terms`, `gp-accountants`, `ihca`, ...) and the CMS routes (`admin`, `api`, `page`, `tag`, `category`, `author`) get `-post` added.
 - After the import, the posts in `lib/content.json` are no longer used for the news pages. Edit them in the admin; the JSON copy is only the fallback for the home page's "Latest news" when the database is empty.
 

@@ -1,7 +1,7 @@
 // Creates the SQL for the first admin user (users + profiles rows).
 //
 //   npm run db:create-admin -- you@medicalaccountant.ie "a long password" "Your Name"
-//   then paste .admin-seed.sql into the Supabase SQL Editor and run it.
+//   then run:  npx wrangler d1 execute DB --remote --file .admin-seed.sql   (use --local for the dev database)
 //
 // The hash format matches lib/auth/password.ts (PBKDF2-SHA256, 100k iterations).
 import { pbkdf2Sync, randomBytes, randomUUID } from 'node:crypto';
@@ -27,5 +27,5 @@ const sql = [
 ].join('\n');
 
 writeFileSync('.admin-seed.sql', sql);
-console.log('Wrote .admin-seed.sql. Paste it into the Supabase SQL Editor (Dashboard > SQL Editor) and run it.');
+console.log('Wrote .admin-seed.sql. Run it with:  npx wrangler d1 execute DB --remote --file .admin-seed.sql   (--local for the dev database)');
 console.log('Then delete .admin-seed.sql.');
