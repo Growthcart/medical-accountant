@@ -1,12 +1,26 @@
+import { readFileSync } from 'node:fs'
 import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
 
 /** @type {import('next').NextConfig} */
 
 // Canonical URLs, sitemaps, feeds and OAuth metadata are all built from
-// NEXT_PUBLIC_SITE_URL (baked in at build time: set it in the CI/Workers Builds environment); a production build without it would ship
-// http://localhost:3000 everywhere.
-if (process.env.CI && !process.env.NEXT_PUBLIC_SITE_URL) {
-  throw new Error('NEXT_PUBLIC_SITE_URL must be set for CI/production builds (e.g. https://medicalaccountant.ie)')
+// NEXT_PUBLIC_SITE_URL, which is baked in at build time. In CI (Cloudflare
+// Workers Builds) it is taken from the build environment if set, otherwise
+// from the `vars` in wrangler.jsonc, so the build and the running Worker share
+// one value. Local dev keeps http://localhost:3000.
+function siteUrlFromWrangler() {
+  try {
+    const wrangler = readFileSync(new URL('./wrangler.jsonc', import.meta.url), 'utf8')
+    return wrangler.match(/"NEXT_PUBLIC_SITE_URL"\s*:\s*"([^"]+)"/)?.[1]
+  } catch {
+    return undefined
+  }
+}
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (process.env.CI ? siteUrlFromWrangler() : undefined)
+
+// A production build without it would ship http://localhost:3000 everywhere.
+if (process.env.CI && !siteUrl) {
+  throw new Error('NEXT_PUBLIC_SITE_URL must be set for CI/production builds (in wrangler.jsonc vars or the build environment)')
 }
 
 // Uploaded files are served from this site (/files/...) unless NEXT_PUBLIC_R2_PUBLIC_URL points at a public CDN/bucket domain.
@@ -54,6 +68,7 @@ const nextConfig = {
     // Build time, used as the sitemap lastmod for static pages (it changes
     // only when the site is redeployed).
     NEXT_PUBLIC_BUILD_DATE: new Date().toISOString(),
+    ...(siteUrl ? { NEXT_PUBLIC_SITE_URL: siteUrl } : {}),
   },
   images: {
     // Files are served as stored (no image-optimisation service is used).

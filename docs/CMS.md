@@ -26,9 +26,9 @@ The site runs on one Cloudflare Worker (Next.js through OpenNext), with a **D1**
 3. **Buckets.** `npx wrangler r2 bucket create medical-accountant-uploads` (uploads, served by the site at `/files/<bucket>/<name>`) and `npx wrangler r2 bucket create medical-accountant-opennext-cache` (page cache).
 4. **Secrets.** For each name in `.dev.vars.example` run `npx wrangler secret put NAME`: `ADMIN_EMAIL`, `ADMIN_PASSWORD` (8+ characters, longer is better), `POSTS_API_KEY`, `REVALIDATION_SECRET`, `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `INDEXNOW_KEY`, `ENQUIRY_WEBHOOK_URL`. The first sign-in at `/admin/login` creates the admin account; changing `ADMIN_EMAIL` or `ADMIN_PASSWORD` later changes the login. No SQL needed.
 5. **Deploy.** `npm run deploy` (builds, then uploads the Worker). Add the domain under Workers & Pages > medical-accountant > Settings > Domains & Routes.
-6. **Automatic deploys.** `.github/workflows/deploy.yml` deploys every push to `main`. Add the repository secrets `CLOUDFLARE_API_TOKEN` (permissions: Workers Scripts, D1, R2 edit) and `CLOUDFLARE_ACCOUNT_ID`.
+6. **Automatic deploys.** Cloudflare Workers Builds (the Git connection under Workers & Pages > medical-accountant > Settings > Builds) deploys every push to `main`. Set its **Build command** to `npm run cf:build` (runs the tests, then builds) and its **Deploy command** to `npm run cf:deploy` (applies D1 migrations, then deploys). The build's API token needs D1 edit permission for the migrations.
 
-`NEXT_PUBLIC_*` values (site URL, tracking ids) are baked in at build time: `NEXT_PUBLIC_SITE_URL` is set in `wrangler.jsonc` (runtime) and in `deploy.yml` (build); the others, if you change them, go in `deploy.yml` too.
+`NEXT_PUBLIC_*` values (site URL, tracking ids) are baked in at build time. `NEXT_PUBLIC_SITE_URL` comes from the `vars` in `wrangler.jsonc` for both the build and the running Worker (a build variable of the same name in the Workers Builds settings overrides it). Any other `NEXT_PUBLIC_*` value goes under **Build variables** in the Workers Builds settings.
 
 The Worker bundle is about 3.6 MB gzipped, so it needs the **Workers Paid** plan (the free plan's limit is 3 MB).
 
