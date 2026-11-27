@@ -16,8 +16,18 @@
 		}
 	],
 	"vars": {
-		"NEXT_PUBLIC_SITE_URL": "https://medicalaccountant.ie"
+		"NEXT_PUBLIC_SITE_URL": "https://medicalaccountant.ie",
+		// Sender for form emails; must be on the domain onboarded under Email Service > Email Sending.
+		"EMAIL_FROM": "noreply@medicalaccountant.ie",
+		// Where enquiries go (and any CMS form without its own recipient).
+		"ADMIN_NOTIFICATION_EMAIL": "info@medicalaccountant.ie"
 	},
+	// Cloudflare Email Sending (form emails; see docs/CMS.md > Email).
+	"send_email": [
+		{
+			"name": "EMAIL"
+		}
+	],
 	"d1_databases": [
 		{
 			// The site database. Create it once:  npx wrangler d1 create medical-accountant-db

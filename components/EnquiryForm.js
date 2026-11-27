@@ -1,10 +1,15 @@
 'use client';
 import { useState } from 'react';
+import {
+  ENQUIRY_FORM_SLUG,
+  ENQUIRY_SOURCES,
+  HEARD_ABOUT as HEARD,
+  PAYROLL_SIZES as PAYROLL,
+  PROFESSIONAL_TYPES as TYPES,
+} from '@/lib/forms/enquiry-options';
 
 const A = { 'data-astro-cid-vekgkm42': '' }; // scoped form styles in the design CSS key off this attribute
-const TYPES = ['Hospital Consultant', 'GP Practice', 'Locum Doctor', 'Dental Associates', 'Dental Practice'];
-const PAYROLL = ['Only one -Owner', '1-5', '5-10', '10+'];
-const HEARD = ['Google Search Organic', 'Google Ads', 'Medical Magazine', 'Referred by Friend', 'Others'];
+const FIELDS = ['name', 'email', 'phone', 'professionalType', 'payroll', 'heardAbout', 'message'];
 
 const Select = ({ id, name, label, options }) => (
   <div {...A}>
@@ -16,19 +21,31 @@ const Select = ({ id, name, label, options }) => (
   </div>
 );
 
+// Submissions go to /api/forms/submit (the built-in "Website enquiry" CMS form):
+// saved in Admin > Forms, emailed to the team and copied to the visitor.
 export default function EnquiryForm({ variant = 'enquiry' }) {
   const [status, setStatus] = useState('idle');
+  const [error, setError] = useState('');
 
   async function onSubmit(e) {
     e.preventDefault();
     setStatus('sending');
+    setError('');
+    const fd = new FormData(e.currentTarget);
+    const data = Object.fromEntries(FIELDS.map((k) => [k, String(fd.get(k) ?? '')]));
+    data.source = ENQUIRY_SOURCES[variant] ?? ENQUIRY_SOURCES.enquiry;
     try {
-      const res = await fetch('/api/enquiry/', {
+      const res = await fetch('/api/forms/submit/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...Object.fromEntries(new FormData(e.currentTarget)), variant }),
+        body: JSON.stringify({ form_slug: ENQUIRY_FORM_SLUG, data, honeypot: String(fd.get('office_ref') ?? '') }),
       });
-      if (!res.ok) throw new Error(String(res.status));
+      if (!res.ok) {
+        // 400s carry a message about a specific field; anything else gets the generic note.
+        const body = await res.json().catch(() => ({}));
+        setError(res.status === 400 && body.error ? body.error : '');
+        throw new Error(String(res.status));
+      }
       window.location.href = '/thank-you/';
     } catch {
       setStatus('failed');
@@ -77,7 +94,7 @@ export default function EnquiryForm({ variant = 'enquiry' }) {
       </form>
       {status === 'failed' && (
         <p className="form-success--inline" role="status" aria-live="polite">
-          Sorry, something went wrong sending your enquiry. Please try again, or email info@medicalaccountant.ie.
+          {error ? `${error}. ` : 'Sorry, something went wrong sending your enquiry. '}Please try again, or email info@medicalaccountant.ie.
         </p>
       )}
     </>

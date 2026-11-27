@@ -5,12 +5,13 @@ interface __BaseEnv_CloudflareEnv {
 	NEXT_INC_CACHE_R2_BUCKET: R2Bucket;
 	DB: D1Database;
 	NEXT_TAG_CACHE_D1: D1Database;
+	EMAIL: SendEmail;
 	ASSETS: Fetcher;
 	NEXT_PUBLIC_SITE_URL: string;
 	POSTS_API_KEY: string;
 	REVALIDATION_SECRET: string;
-	RESEND_API_KEY: string;
-	RESEND_FROM_EMAIL: string;
+	EMAIL_FROM: string;
+	ADMIN_NOTIFICATION_EMAIL: string;
 	INDEXNOW_KEY: string;
 	WORKER_SELF_REFERENCE: Fetcher /* medical-accountant */;
 }
@@ -22,7 +23,7 @@ type StringifyValues<EnvType extends Record<string, unknown>> = {
 	[Binding in keyof EnvType]: EnvType[Binding] extends string ? EnvType[Binding] : string;
 };
 declare namespace NodeJS {
-	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "NEXT_PUBLIC_SITE_URL" | "POSTS_API_KEY" | "REVALIDATION_SECRET" | "RESEND_API_KEY" | "RESEND_FROM_EMAIL" | "INDEXNOW_KEY">> {}
+	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "NEXT_PUBLIC_SITE_URL" | "POSTS_API_KEY" | "REVALIDATION_SECRET" | "EMAIL_FROM" | "ADMIN_NOTIFICATION_EMAIL" | "INDEXNOW_KEY">> {}
 }
 declare module "*.txt" {
 	const value: string;

@@ -7,6 +7,8 @@ import { authorize } from '../lib/db/authz';
 import { runQuery, type D1Like } from '../lib/db/exec';
 import { hashPassword, verifyPassword } from '../lib/auth/password';
 import { sanitizePostHtml } from '../lib/blog/sanitizePostHtml';
+import { getOrCreateEnquiryForm } from '../lib/forms/enquiry-form';
+import { ENQUIRY_FORM_SLUG, ENQUIRY_SOURCES } from '../lib/forms/enquiry-options';
 
 // Real SQLite (node:sqlite, in-process) standing in for Cloudflare D1, loaded with the real migration.
 async function freshDb() {
@@ -169,4 +171,20 @@ test('sanitizer keeps content, drops scripts and foreign iframes', () => {
   assert.ok(out.includes('<h2 id="a">Hi</h2>'));
   assert.ok(!out.includes('onclick') && !out.includes('bad()') && !out.includes('javascript:') && !out.includes('evil.example'));
   assert.ok(out.includes('youtube.com/embed/abc') && out.includes('<img src="/a.png" alt="a">'));
+});
+
+test('the built-in enquiry form is created once, then reused', async () => {
+  const db = await freshDb();
+  const client = db as unknown as Parameters<typeof getOrCreateEnquiryForm>[0];
+  const first = await getOrCreateEnquiryForm(client);
+  const again = await getOrCreateEnquiryForm(client);
+  assert.equal(first.id, again.id);
+  assert.equal(first.slug, ENQUIRY_FORM_SLUG);
+  assert.equal(first.is_active, true);
+  assert.equal(first.user_email_field, 'email');
+  const { count } = await db.from('contact_forms').select('id', { count: 'exact' }).eq('slug', ENQUIRY_FORM_SLUG);
+  assert.equal(count, 1);
+  // Every value the browser form sends for "Sent from" is an accepted option.
+  const source = first.fields.find((f: { name: string }) => f.name === 'source');
+  for (const v of Object.values(ENQUIRY_SOURCES)) assert.ok(source.options.includes(v));
 });

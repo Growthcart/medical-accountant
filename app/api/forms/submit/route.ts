@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createServiceClient } from '@/lib/db/server';
+import { envVar } from '@/lib/db/env';
 import { publicUrlFor } from '@/lib/storage/public-url';
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit';
-import { sendFormNotification, sendUserConfirmation } from '@/lib/email';
+import { emailConfigured, sendFormNotification, sendUserConfirmation } from '@/lib/email';
+import { getOrCreateEnquiryForm } from '@/lib/forms/enquiry-form';
+import { ENQUIRY_FORM_SLUG } from '@/lib/forms/enquiry-options';
 import type { FormFieldDefinition } from '@/lib/database.types';
 
 // Rate limit: 5 submissions per minute per IP. Backed by the
@@ -16,11 +19,13 @@ const SUBMIT_WINDOW_SECONDS = 60;
 // Outer envelope only — per-field type/format/option validation runs after
 // we load the form definition from the DB, since the rules are dynamic
 // per form.
+// A form is addressed by id, or by slug for the built-in enquiry form.
 const submitBodySchema = z.object({
-  form_id: z.string().uuid(),
+  form_id: z.string().uuid().optional(),
+  form_slug: z.literal(ENQUIRY_FORM_SLUG).optional(),
   data: z.record(z.string(), z.string()),
   honeypot: z.string().optional(),
-});
+}).refine((b) => b.form_id || b.form_slug, { message: 'form_id or form_slug is required' });
 
 // True when the value is a public URL that /api/forms/upload produced for
 // this form: stored under form-uploads/{formId}/.
@@ -54,7 +59,7 @@ export async function POST(request: NextRequest) {
     if (!parsed.success) {
       return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
     }
-    const { form_id, data, honeypot } = parsed.data;
+    const { data, honeypot } = parsed.data;
 
     // Honeypot check — if filled, return fake success
     if (honeypot) {
@@ -64,16 +69,19 @@ export async function POST(request: NextRequest) {
     const db = createServiceClient();
 
     // Load form definition
-    const { data: form, error: formError } = await db
-      .from('contact_forms')
-      .select('*')
-      .eq('id', form_id)
-      .eq('is_active', true)
-      .maybeSingle();
+    const { data: form, error: formError } = parsed.data.form_id
+      ? await db
+        .from('contact_forms')
+        .select('*')
+        .eq('id', parsed.data.form_id)
+        .eq('is_active', true)
+        .maybeSingle()
+      : { data: await getOrCreateEnquiryForm(db), error: null };
 
-    if (formError || !form) {
+    if (formError || !form || !form.is_active) {
       return NextResponse.json({ error: 'Form not found or inactive' }, { status: 404 });
     }
+    const form_id: string = form.id;
 
     const fields = form.fields as FormFieldDefinition[];
 
@@ -186,19 +194,23 @@ export async function POST(request: NextRequest) {
     }
 
     // Send emails. Await both so the Worker isn't ended before
-    // Resend is called. Failures are logged but don't fail the submission since
+    // they go out. Failures are logged but don't fail the submission since
     // the data is already persisted.
-    const recipientEmail = form.recipient_email || process.env.ADMIN_NOTIFICATION_EMAIL;
+    const recipientEmail = form.recipient_email || envVar('ADMIN_NOTIFICATION_EMAIL');
     const fieldInfos = fields.map((f) => ({ label: f.label, name: f.name, type: f.type }));
     const submittedAt = new Date().toISOString();
 
-    if (!process.env.RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not set — skipping email notifications.');
+    const canEmail = emailConfigured();
+    if (!canEmail) {
+      console.error('Email is not configured (EMAIL binding or EMAIL_FROM missing) — skipping email notifications.');
     }
+    // The visitor's address, if the form has an email field, so the team can hit Reply.
+    const emailField = fields.find((f) => f.type === 'email' && sanitizedData[f.name]);
+    const replyTo = emailField ? sanitizedData[emailField.name] : null;
 
     const emailJobs: Promise<unknown>[] = [];
 
-    if (recipientEmail && process.env.RESEND_API_KEY) {
+    if (recipientEmail && canEmail) {
       emailJobs.push(
         sendFormNotification({
           formName: form.name,
@@ -209,13 +221,14 @@ export async function POST(request: NextRequest) {
           submittedAt,
           customSubject: form.admin_email_subject,
           customTemplate: form.admin_email_template,
+          replyTo,
         }).catch((err) => {
-          console.error('Resend admin email error:', err);
+          console.error('Admin email error:', err);
         })
       );
     }
 
-    if (form.user_email_enabled && form.user_email_field && process.env.RESEND_API_KEY) {
+    if (form.user_email_enabled && form.user_email_field && canEmail) {
       const userEmail = sanitizedData[form.user_email_field];
       if (userEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail)) {
         emailJobs.push(
@@ -227,7 +240,7 @@ export async function POST(request: NextRequest) {
             customSubject: form.user_email_subject,
             customTemplate: form.user_email_template,
           }).catch((err) => {
-            console.error('Resend user email error:', err);
+            console.error('User confirmation email error:', err);
           })
         );
       }

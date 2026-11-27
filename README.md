@@ -8,5 +8,5 @@ Next.js 16 runs on a Cloudflare Worker through OpenNext, with a D1 database (`mi
 - `npm run deploy`: build and deploy (CI does this on every push to `main`)
 - `npm test`, `npm run type-check`
 - Setup, data migration and day-to-day use: `docs/CMS.md`
-- Enquiry form posts to `/api/enquiry`, which forwards JSON to the `ENQUIRY_WEBHOOK_URL` secret (returns 503 until it is set).
+- Enquiry form posts to `/api/forms/submit` (the built-in "Website enquiry" CMS form): saved in Admin > Forms and emailed through Cloudflare Email Sending (see `docs/CMS.md`).
 - Page/post content lives in `lib/content.json`; shared UI in `components/`.

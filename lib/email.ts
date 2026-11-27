@@ -1,14 +1,35 @@
-// Resend's REST API over fetch, so this runs on Workers without the SDK.
-async function sendEmail(msg: { from: string; to: string; subject: string; html: string }) {
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(msg),
-  });
-  const body = await res.json().catch(() => ({}));
-  return res.ok
-    ? { data: body as { id: string }, error: null }
-    : { data: null, error: { name: body.name as string | undefined, message: (body.message as string | undefined) || res.statusText } };
+import { emailBinding, envVar } from '@/lib/db/env';
+
+// Cloudflare Email Sending through the Worker's `EMAIL` binding (wrangler.jsonc).
+// Locally, `next dev` gets wrangler's simulator, which records the message
+// instead of delivering it.
+
+// True when the site can send email: the binding exists and a sender is set.
+export function emailConfigured(): boolean {
+  return Boolean(emailBinding() && envVar('EMAIL_FROM'));
+}
+
+async function sendEmail(msg: { to: string; subject: string; html: string; replyTo?: string }) {
+  const binding = emailBinding();
+  const from = envVar('EMAIL_FROM');
+  if (!binding || !from) {
+    return { data: null, error: { name: 'E_NOT_CONFIGURED', message: 'The EMAIL binding or EMAIL_FROM is not set' } };
+  }
+  try {
+    const sent = await binding.send({
+      from: { email: from, name: 'MedicalAccountant.ie' },
+      to: msg.to,
+      subject: msg.subject,
+      html: msg.html,
+      ...(msg.replyTo ? { replyTo: msg.replyTo } : {}),
+    });
+    return { data: { id: sent.messageId }, error: null };
+  } catch (err) {
+    // Binding errors carry a code such as E_RECIPIENT_PLAN_RESTRICTED (Free plan,
+    // recipient not a verified destination) or E_SENDER_DOMAIN_NOT_AVAILABLE.
+    const e = err as { code?: string; message?: string };
+    return { data: null, error: { name: e.code, message: e.message || String(err) } };
+  }
 }
 
 interface FormFieldInfo {
@@ -26,6 +47,8 @@ interface SendFormNotificationParams {
   submittedAt: string;
   customSubject?: string | null;
   customTemplate?: string | null;
+  // The visitor's address, so the team can reply straight from the notification.
+  replyTo?: string | null;
 }
 
 interface SendUserConfirmationParams {
@@ -147,8 +170,8 @@ export async function sendFormNotification({
   submittedAt,
   customSubject,
   customTemplate,
+  replyTo,
 }: SendFormNotificationParams) {
-  const fromEmail = process.env.RESEND_FROM_EMAIL || 'noreply@resend.dev';
   const subject = customSubject || `New submission: ${formName}`;
 
   let html: string;
@@ -165,14 +188,14 @@ export async function sendFormNotification({
   }
 
   const { data: sent, error } = await sendEmail({
-    from: `Forms <${fromEmail}>`,
     to: recipientEmail,
     subject,
     html,
+    replyTo: replyTo || undefined,
   });
 
   if (error) {
-    throw new Error(`Resend admin send failed: ${error.name || 'error'} — ${error.message || JSON.stringify(error)}`);
+    throw new Error(`Admin email failed: ${error.name || 'error'} — ${error.message || JSON.stringify(error)}`);
   }
 
   return sent;
@@ -186,7 +209,6 @@ export async function sendUserConfirmation({
   customSubject,
   customTemplate,
 }: SendUserConfirmationParams) {
-  const fromEmail = process.env.RESEND_FROM_EMAIL || 'noreply@resend.dev';
   const subject = customSubject || `Thank you for your submission (${formName})`;
 
   let html: string;
@@ -201,14 +223,13 @@ export async function sendUserConfirmation({
   }
 
   const { data: sent, error } = await sendEmail({
-    from: `Forms <${fromEmail}>`,
     to: userEmail,
     subject,
     html,
   });
 
   if (error) {
-    throw new Error(`Resend user send failed: ${error.name || 'error'} — ${error.message || JSON.stringify(error)}`);
+    throw new Error(`User email failed: ${error.name || 'error'} — ${error.message || JSON.stringify(error)}`);
   }
 
   return sent;
